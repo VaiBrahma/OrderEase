@@ -5,7 +5,7 @@ const MenuItem = ({item = {
     desc: "Very Delicious, Very Tasty",
     isAvailable: true,
     price: 249,
-    img: '/images/pizza.png'
+    img: '/images/defaultFoodIcon.jpeg'
 }}) => {
   return (
     <div className={`${styles.card}`}>
