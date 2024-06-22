@@ -1,8 +1,10 @@
 import { Outlet } from "react-router-dom"
+import Navbar from "../navbar/navbar"
 
 const Home = () => {
   return (
-    <div style={{background: `url('/images/background.jpg') no-repeat center center/cover`, height: '100vh', width:'100vw'}}>
+    <div>
+        <Navbar/>
         <div>Welcome to our site</div>
         <Outlet/>
     </div>
