@@ -1,29 +1,22 @@
-import NotFound from './components/NotFound';
 import Home from './pages/Home/Home';
-import UserHomePage from './pages/UserHomePage/UserHomePage';
-import AdminHomePage from './pages/AdminHomePage/AdminHomePage';
-import { Route, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Layout from './components/Layout';
+import User from './pages/User/User';
+import Admin from './pages/Admin/Admin';
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import NotFound from './components/NotFound';
+import RestaurentMenu from './pages/User/RestaurentMenu';
 
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home/>,
-  },
-  {
-    path: "user",
-    element: <UserHomePage/>,
-  },
-  {
-    path: "admin",
-    element: <AdminHomePage/>,
-  },
-  {
-    path: "",
-    element: <NotFound/>,
-  },
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route  path="/" element={<Home />}>
+        <Route path="/user" element={<User />} />
+        <Route path="/user/:restaurentId" element={<RestaurentMenu />} />
+        <Route path="/admin" element={<Admin />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </>
+  )
+);
 
 const App = () => {
   return <RouterProvider router = {router}/>;
