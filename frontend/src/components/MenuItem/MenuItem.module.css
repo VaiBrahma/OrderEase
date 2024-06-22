@@ -1,0 +1,27 @@
+.card{
+    width: 90%;
+    /* border: 1px solid red; */
+    border-radius: 2em;
+    background: transparent;
+    display: flex;
+    height: 150px;
+    margin: auto;
+}
+
+.left{
+    max-width: 150px;
+    width: 40%;
+    /* border: 1px solid green; */
+    border-radius: 2em 0 0 2em;
+    background: url('/images/defaultFood.png');
+}
+.right{
+    flex: 1;
+    border: 1px solid #ffffff3c;
+    border-left: none;
+    color: white;
+    padding: 1.5em;
+    background: #00000092;
+    backdrop-filter: blur(10px);
+    border-radius: 0 2em 2em 0;
+}
