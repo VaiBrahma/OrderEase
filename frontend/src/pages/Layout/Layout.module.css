@@ -33,5 +33,6 @@ html, body {
   .contentWrapper {
     flex-grow: 1;
     overflow-y: auto;
+    z-index: 1;
   }
   
