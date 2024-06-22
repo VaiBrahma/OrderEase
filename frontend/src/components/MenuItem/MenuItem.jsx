@@ -13,10 +13,10 @@ const MenuItem = ({item = {
         <div className={`${styles.right}`}>
             <div className={`${styles.title}`}>{item.title}</div>
             <div className={`${styles.desc}`}>{item.desc}</div>
-            <div className={`${styles.price}`}>{item.price}</div>
+            <div className={`${styles.price}`}><span className='text-[#ffffff61]'>Price:</span> ₹{item.price} /-</div>
             <div className={`${styles.buttons}`}>
-                <button className={`${styles.remove}`}></button>
-                <button className={`${styles.add}`}></button>
+                <button className={`${styles.remove}`}><img src="/icons/remove.png" alt="-" /></button>
+                <button className={`${styles.add}`}><img src="/icons/add.png" alt="+" /></button>
             </div>
         </div>
     </div>

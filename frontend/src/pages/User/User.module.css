@@ -1,0 +1,9 @@
+.container {
+  width: 95%;
+  background: #42414189;
+  backdrop-filter: blur(5px);
+  margin: auto;
+  margin-top: 5em;
+  border-radius: 2em 2em 0 0;
+  padding: 5em 1em;
+}

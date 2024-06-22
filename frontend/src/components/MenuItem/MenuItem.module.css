@@ -9,7 +9,7 @@
 }
 
 .left{
-    max-width: 150px;
+    max-width: 125px;
     width: 40%;
     /* border: 1px solid green; */
     border-radius: 2em 0 0 2em;
@@ -19,9 +19,34 @@
     flex: 1;
     border: 1px solid #ffffff3c;
     border-left: none;
-    color: white;
-    padding: 1.5em;
-    background: #00000092;
+    color: #ffffffdb;
+    padding: 1em;
+    background: #00000064;
     backdrop-filter: blur(10px);
     border-radius: 0 2em 2em 0;
+    position: relative;
+}
+
+.title{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.buttons{
+    position: absolute;
+    /* border: 1px solid red; */
+    right: 1em;
+    bottom: 0;
+}
+
+.buttons img{
+    width: 1.2em;
+    margin: 2px;
+}
+
+.buttons img:hover{
+    filter: drop-shadow(0 0 2px #d6d6d6c9)
+}
+.remove:active, .add:active{
+    transform: scale(0.95);
 }
