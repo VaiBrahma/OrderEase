@@ -1,11 +1,11 @@
 import Layout from './pages/Layout/Layout';
 import User from './pages/User/User';
-import Admin from './pages/Admin/Admin';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import NotFound from './components/NotFound';
 import RestaurentMenu from './pages/User/RestaurentMenu';
 import Login from './pages/login/login';
 import Signup from './pages/login/signup';
+import DishPage from './pages/Admin/dishes/dishes';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,7 +15,7 @@ const router = createBrowserRouter(
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/user/:restaurentId" element={<RestaurentMenu />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<DishPage />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </>
