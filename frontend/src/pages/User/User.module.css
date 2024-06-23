@@ -17,8 +17,8 @@
   backdrop-filter: blur(5px);
   margin: auto;
   /* margin-top: 5em; */
-  border-radius: 2em 2em 0 0;
-  border: 1px solid orange;
+  /* border-radius: 2em 2em 0 0; */
+  border-top: 1px solid orange;
   min-height: calc(100% - 50px);
   padding: 2em 0;
 }
@@ -39,7 +39,7 @@
 
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 2fr));
+    grid-template-columns: repeat(auto-fill, minmax(200wpx, 2fr));
     justify-items: center;
     padding: 0;
 }
