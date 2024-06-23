@@ -8,6 +8,7 @@
     margin: auto;
 }
 
+
 .left{
     max-width: 125px;
     width: 40%;
@@ -25,6 +26,11 @@
     backdrop-filter: blur(10px);
     border-radius: 0 2em 2em 0;
     position: relative;
+}
+.card:hover{
+    background-color: #ffffffa2;
+    /* border: 2px solid orange; */
+    /* color: #000000dc; */
 }
 
 .title{
@@ -47,6 +53,11 @@
 .buttons img:hover{
     filter: drop-shadow(0 0 2px #d6d6d6c9)
 }
+
+.remove, .add{
+    transform: scale(1.2);
+    margin: 5px;
+}
 .remove:active, .add:active{
-    transform: scale(0.95);
+    transform: scale(1);
 }
