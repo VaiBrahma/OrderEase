@@ -20,7 +20,7 @@ function Login() {
                     <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Login</button>
                 </form>
                 <div className="mt-4 text-center">
-                    <p>Dont't have an account? <button onClick={() => navigate("/signup")} className="text-blue-500">Signup</button></p>
+                    <p>Dont&#39;t have an account? <button onClick={() => navigate("/signup")} className="text-blue-500">Signup</button></p>
                 </div>
             </div>
         </div>
