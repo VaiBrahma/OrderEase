@@ -9,5 +9,13 @@ body{
  
 *{
   box-sizing: border-box;
-  transition: all 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #ffffff;
+  font-family: "Playwrite ES", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }

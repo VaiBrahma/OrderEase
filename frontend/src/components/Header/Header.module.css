@@ -21,4 +21,5 @@
     filter: invert();
     width: 2em;
     height: 2em;
+    z-index: 1;
 }
