@@ -61,7 +61,7 @@ const DishList = ({ dishes, removeDish, editDish }) => {
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="font-bold text-lg">{dish.name}</h3>
-                    <p className="text-gray-700">${dish.price}</p>
+                    <p className="text-gray-700">{dish.price}/-</p>
                   </div>
                   <div>
                     <button onClick={() => startEditing(dish)} className="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Edit</button>

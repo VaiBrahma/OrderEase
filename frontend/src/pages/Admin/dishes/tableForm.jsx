@@ -21,13 +21,13 @@ const TableForm = ({ addTable }) => {
   return (
     <form onSubmit={handleSubmit} className="mb-4">
       <div className="mb-2">
-        <label className="block text-gray-700">Table Number</label>
+        <label className="block text-white">Table Number</label>
         <input
           type="text"
           name="number"
           value={table.number}
           onChange={handleChange}
-          className="w-1/4 px-3 py-2 border rounded"
+          className="w-full px-3 py-2 border rounded text-black"
           required
         />
       </div>
@@ -39,9 +39,9 @@ const TableForm = ({ addTable }) => {
           onChange={handleCheckboxChange}
           className="mr-2"
         />
-        <label className="text-gray-700">Occupied</label>
+        <label className="text-white">Occupied</label>
       </div>
-      <button type="submit" className="bg-blue-500 text-white px-3 py-2 rounded">Add Table</button>
+      <button type="submit" className="bg-green-500 text-white px-3 py-2 rounded">Add Table</button>
     </form>
   );
 };
