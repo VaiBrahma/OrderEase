@@ -3,8 +3,9 @@ import mongoose from 'mongoose';
 const adminSchema = new mongoose.Schema({
   title: String,
   admin: String,
+  password: "String",
   admin_handle: { type: String, unique: true },
-  admin_mobile_no: String,
+  admin_mobile_no: { type: Number, unique: true },
   no_of_tables: Number,
   address: {
     street: String,
