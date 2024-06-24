@@ -17,7 +17,7 @@ router.post("/signup", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newCustomer = new Customer({ name, email, password: hashedPassword });
+    const newCustomer = new Customer({ name, email, password: hashedPassword, isAdmin: false, });
     await newCustomer.save();
 
     res.status(201).json({ message: "Customer registered successfully" });
@@ -44,6 +44,7 @@ router.post("/admin/signup", async (req, res) => {
       admin_handle,
       admin_mobile_no,
       password: hashedPassword,
+      isAdmin: true,
     });
     await newAdmin.save();
 

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const adminSchema = new mongoose.Schema({
+  isAdmin: Boolean,
   title: String,
   admin: String,
   password: "String",
