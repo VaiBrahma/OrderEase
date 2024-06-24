@@ -115,6 +115,7 @@
   display: flex;
   flex-direction: column;
   padding: 1em;
+  padding-top: 2em;
 }
 
 .expanded {
@@ -122,14 +123,12 @@
   border-radius: 0;
 }
 
-.expandButton {
+.btns {
   position: absolute;
   top: 1em;
   right: 1em;
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  cursor: pointer;
+  display: flex;
+  gap: 10px;
 }
 
 .bill {
@@ -176,4 +175,8 @@
 
 .placeOrderButton:hover, .chatButton:hover {
   background-color: darkorange;
+}
+
+.btns img{
+  width: 25px;
 }

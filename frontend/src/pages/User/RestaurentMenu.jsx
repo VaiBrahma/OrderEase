@@ -60,9 +60,14 @@ const RestaurentMenu = () => {
       </div>
       {isSidebarOpen && (
         <div ref={sidebarRef} className={`${styles.sidebar} ${isExpanded ? styles.expanded : ''}`}>
-          <button className={styles.expandButton} onClick={toggleExpand}>
-            {isExpanded ? 'Collapse' : 'Expand'}
-          </button>
+          <div className={styles.btns}>
+            <button className='scale-[1.1]'>
+              <img src="/icons/close.png" alt="x" onClick={()=>setSidebarOpen(false)}/>
+            </button>
+            <button className={styles.expandButton} onClick={toggleExpand}>
+              {isExpanded ? <img src='/icons/minimize.png' alt='-' className='scale-[1.2]'/> : <img src='/icons/expand.png' alt='+'/>}
+            </button>
+          </div>
           <div className={styles.bill}>
             {Object.entries(menu).map(([itemName, itemData]) => (
               <div key={itemName} className={styles.billItem}>
