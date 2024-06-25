@@ -8,22 +8,11 @@
     max-width: 28rem;
     text-align: center;
     position: relative;
-    animation: slide-in 0.5s ease-out;
+    animation: formAppear 0.5s ease-out;
     transform-origin: top center;
     filter: drop-shadow(0 0px 2px #ffffff90);
     /* outline: 1px solid red; */
     margin-top: 20px;
-}
-.loginContainer::after{
-    content:"";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%) rotate(0deg);
-    width: 10px;
-    height: 10px;
-    background-color: #050408;
-    clip-path: polygon(50% 0, 0 100%, 100% 100%);
 }
 
 .loginButton {
@@ -89,23 +78,21 @@
     padding: 0 0.25rem;
 }
 
-@keyframes slide-in {
-    0%{
-        transform: scale(0) rotate(-10deg);
+@keyframes formAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translateY(-30px);
     }
-    20%{
-        transform: scale(0.5) rotate(9deg);
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1) translateY(10px);
     }
-    50%{
-        transform: scale(1) rotate(-7deg);
+    75% {
+        opacity: 0.9;
+        transform: scale(0.95) translateY(-5px);
     }
-    70%{
-        transform: scale(1) rotate(5deg);
-    }
-    90%{
-        transform: scale(1) rotate(-3deg);
-    }
-    100%{
-        transform: scale(1) rotate(0deg);
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
     }
 }
