@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import styles from './Login.module.css';
+import { setLogin } from '../../../state';
+import { useDispatch } from 'react-redux';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -10,6 +12,7 @@ function Login() {
     const [isLoginComplete, setIsLoginComplete] = useState(false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +23,17 @@ function Login() {
             await axios.post('/api/auth/login',user)
             .then((response)=>{
                 setIsLoginComplete(true);
+
+
+                const loggedIn =  response.data;
+                console.log(loggedIn);
+                if (loggedIn) {
+                    dispatch(setLogin({
+                        token: loggedIn.token,
+                        user: loggedIn.user,
+                    })
+                    )
+                }
 
                 if(response.data.isAdmin) navigate('/admin');
                 else navigate('/customer');
