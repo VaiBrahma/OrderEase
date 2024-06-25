@@ -21,11 +21,11 @@ const Signup = () => {
       <h1 className="text-[orange] text-[1.5em]">What role do you play?</h1>
       <div className={styles.cards}>
         <div onClick={() => { setIsAdmin(true); slideIn(); }} className={`${styles.card} ${isAdmin ? styles.selected : ""}`}>
-          <h2 className="text-[#aee85d]">Admin</h2>
+          <h2 className={styles.role}>Admin</h2>
           <p>I am the owner, I manage the restaurant and ensure everything runs smoothly.</p>
         </div>
         <div onClick={() => { setIsAdmin(false); slideIn(); }} className={`${styles.card} ${isAdmin === false ? styles.selected : ""}`}>
-          <h2 className="text-[#aee85d]">Customer</h2>
+          <h2 className={styles.role}>Customer</h2>
           <p>I am a customer, I enjoy eating delicious food and having a good time.</p>
         </div>
       </div>

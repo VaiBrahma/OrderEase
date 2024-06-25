@@ -1,7 +1,11 @@
   .container {
     text-align: center;
-    margin-top: 50px;
     color: white;
+    /* border: 1px solid red; */
+    min-height: calc(100vh - 50px);
+    padding-top: 50px;
+    background: #36000000;
+    backdrop-filter: blur(10px);
   }
   
   .cards {
@@ -38,3 +42,10 @@
     color: #ff0000;
   }
   
+  .role{
+    color: #aee85d;
+  }
+
+  .selected .role, .card:hover .role{
+    color: orangered;
+  }

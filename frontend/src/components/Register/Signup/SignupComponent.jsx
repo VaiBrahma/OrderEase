@@ -66,7 +66,7 @@ function SignupComponent({ isAdmin }) {
                         {showTermsCard && (
                             <div className={styles.termsCard}>
                                 <p>We will charge ₹1/- per order.</p>
-                                <button onClick={() => setShowTermsCard(false)} className="text-blue-500 absolute right-2 top-2" ><img src="/icons/close.png" alt="x" className='w-4 invert'/></button>
+                                <button onClick={() => setShowTermsCard(false)} className="text-blue-500 absolute right-1 top-1" ><img src="/icons/close.png" alt="x" className='w-4 invert'/></button>
                             </div>
                         )}
                     </>

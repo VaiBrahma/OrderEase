@@ -84,6 +84,8 @@
     background: #ffffff0e;
     border-radius: 1em;
     position: relative;
+    border: 1px solid #ffffff1b;
+    margin-top: 10px;
 }
 
 @keyframes formAppear {

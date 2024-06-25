@@ -52,7 +52,7 @@ function Login() {
                 </div>
                 <button type="submit" className={styles.loginButton}>Login</button>
             </form>
-            <div className="mt-4 text-center">
+            <div className="mt-4 text-center text-white">
                 <p>Don&rsquo;t have an account? <button onClick={() => navigate("/signup")} className="text-blue-500">Signup</button></p>
             </div>
         </div>
