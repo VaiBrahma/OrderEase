@@ -1,39 +1,46 @@
-import React, { useState } from 'react';
-import styles from './Home.module.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useRef, useState } from "react";
+import styles from "./Home.module.css";
+import { useNavigate } from "react-router-dom";
+import WelcomeMessage from "../../components/WelcomeMessage/WelcomeMessage";
+import Login from "../../components/Login/Login";
 
 const Home = () => {
-  const [selectedRole, setSelectedRole] = useState(null);
   const Navigate = useNavigate();
+  const [login, setLogin] = useState(false);
+  const loginRef = useRef(null);
 
-  const handleRoleSelection = (role) => {
-    setSelectedRole(role);
-  };
+  const handleLoginClick = () => {
+    setLogin(prev=> !prev);
+
+    setTimeout(() => {
+      
+      if (loginRef.current) {
+        loginRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 10);
+  }
 
   return (
-    <div className={styles.container}>
-      <h1>What role do you play?</h1>
-      <div className={styles.cards}>
-        <div
-          onClick={() => handleRoleSelection('Admin')}
-          className={`${styles.card} ${selectedRole === 'Admin' ? styles.selected : ''}`}
-        >
-          <h2>Admin</h2>
-          <p>I am the owner, I manage the restaurant and ensure everything runs smoothly.</p>
-        </div>
-        <div
-          onClick={() => handleRoleSelection('Customer')}
-          className={`${styles.card} ${selectedRole === 'Customer' ? styles.selected : ''}`}
-        >
-          <h2>Customer</h2>
-          <p>I am a customer, I enjoy eating delicious food and having a good time.</p>
-        </div>
-      </div>
+    <>
+      <WelcomeMessage/>
+      <div className="border-[1px] border-[#8686862c] m-2 md:m-auto gap-4 rounded-lg p-8 max-w-3xl text-center flex bg-[#0000009a] flex-col justify-center items-center" style={{backdropFilter:'blur(10px)'}}> 
       <div className="mt-4 text-center">
-            <p>Already have an account? <button onClick={() => Navigate("/login")} className="text-blue-500">Login</button></p>
+                <p>Don&rsquo;t have an account? <button onClick={() => Navigate("/signup")} className="text-blue-500">Signup</button></p>
+      </div>
+      <p>
+      Already have an account?{" "}
+        <button onClick={handleLoginClick} className="active:scale-[0.9] active:text-blue-300 text-blue-500">
+          Login
+        </button>
+      </p>
+      </div>
+      {
+        login && 
+        <div ref={loginRef}>
+          <Login/>
         </div>
-       {selectedRole && <button onClick={()=>Navigate('/signup')}>Go to Register page</button>}
-    </div>
+      }
+    </>
   );
 };
 

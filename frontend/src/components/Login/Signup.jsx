@@ -30,7 +30,7 @@ function Signup() {
                     <button type="submit" className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">Sign Up</button>
                 </form>
                 <div className="mt-4 text-center">
-                    <p>Already have an account? <button onClick={() => navigate("/login")} className="text-blue-500">Login</button></p>
+                    <p>Already have an account? <button onClick={() => navigate("/")} className="text-blue-500">Login</button></p>
                 </div>
             </div>
         </div>
