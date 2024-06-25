@@ -10,7 +10,7 @@ const User = () => {
   const Navigate = useNavigate();
   const handleClick = (restaurent) => {
     console.log(restaurent);
-    Navigate(`/user/${restaurent.id}`);
+    Navigate(`/customer/${restaurent.id}`);
   }
   return (
     <div className={styles.container}>

@@ -20,6 +20,9 @@ function Login() {
             await axios.post('/api/auth/login',user)
             .then((response)=>{
                 setIsLoginComplete(true);
+
+                if(response.data.isAdmin) navigate('/admin');
+                else navigate('/customer');
             })
             .catch((error)=> {console.log(error.message)})
         }
