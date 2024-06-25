@@ -1,7 +1,7 @@
 import MenuItem from '../../components/MenuItem/MenuItem';
 import RestaurentCard from '../../components/RestaurentCard/RestaurentCard';
 import styles from './User.module.css';
-import restaurents from '../../../public/restaurents';
+import restaurents from '../../assets/restaurents';
 import { Navigate, useNavigate } from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
 

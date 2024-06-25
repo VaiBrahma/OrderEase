@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from 'lottie-react';
-import cookingAnimation from '../../../public/animations/cooking.json';
+import cookingAnimation from '../../assets/animations/cooking.json';
 const WelcomeMessage = () => {
   return (
     <div className="border-[1px] border-[#d1d1d17c] mx-2 md:m-auto gap-4 rounded-lg p-8 max-w-3xl text-center flex bg-[#2c2c2cba] flex-col md:flex-row justify-center items-center" style={{backdropFilter:'blur(10px)',textShadow: "0 2px 5px black", marginTop: '4em'}}>

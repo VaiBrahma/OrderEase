@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Restaurent.module.css';
 import { useParams } from 'react-router-dom';
-import restaurents from '../../../public/restaurents';
+import restaurents from '../../assets/restaurents';
 import MenuItem from '../../components/MenuItem/MenuItem';
 
 const RestaurentMenu = () => {
