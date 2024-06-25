@@ -34,7 +34,7 @@ const DishPage = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 align-items center">
+    <div className="container mx-auto p-4 flex flex-col items-center justify-center">
 
       <div className="text-xl font-bold mb-2 text-orange-400 ">Manage Dishes</div>
       <DishForm addDish={addDish} />

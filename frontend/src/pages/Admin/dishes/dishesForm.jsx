@@ -1,13 +1,19 @@
 // src/components/DishForm.jsx
 import React, { useState } from 'react';
-
+import { Box, Button, TextField, Typography } from '@mui/material';
+import Dropzone from '../../../components/Dropzone';
 const DishForm = ({ addDish }) => {
   const [dish, setDish] = useState({ id: '', name: '', price: '', imageUrl: '' });
+  const [files, setFiles] = useState([]);
 
   const handleChange = (e) => {
     setDish({ ...dish, [e.target.name]: e.target.value });
   };
 
+  const handleDrop = (acceptedFiles) => {
+    setFiles(acceptedFiles);
+    setDish({ ...dish, imageUrl: URL.createObjectURL(acceptedFiles[0]) });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     addDish({ ...dish, id: Date.now().toString() });
@@ -23,7 +29,7 @@ const DishForm = ({ addDish }) => {
           name="name"
           value={dish.name}
           onChange={handleChange}
-          className="w-1/4 px-3 py-2 border rounded bg-gray-300"
+          className="w-full px-3 py-2 border rounded text-black "
           required
         />
       </div>
@@ -34,20 +40,20 @@ const DishForm = ({ addDish }) => {
           name="price"
           value={dish.price}
           onChange={handleChange}
-          className="w-1/4 px-3 py-2 border rounded bg-gray-300"
+          className="w-full px-3 py-2 border rounded text-black"
           required
         />
       </div>
       <div className="mb-2">
-        <label className="block text-white ">Image URL</label>
-        <input
-          type="text"
-          name="imageUrl"
-          value={dish.imageUrl}
-          onChange={handleChange}
-          className="w-1/4 px-3 py-2 border rounded bg-gray-300"
-        //   required
-        />
+        <label className="block text-white  ">Image URL</label>
+        <Dropzone onDrop={handleDrop}  />
+        {files.length > 0 && (
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="body1">Selected file:</Typography>
+            <Typography variant="body2">{files[0].name}</Typography>
+          </Box>
+        )}
+        
       </div>
       <button type="submit" className="bg-green-500 text-white px-3 py-2 rounded">Add Dish</button>
     </form>
