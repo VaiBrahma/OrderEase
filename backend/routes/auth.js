@@ -77,11 +77,12 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     // Respond with token and user ID
-    res.json({ token, userId: user._id, isAdmin: user instanceof Customer ? false : true });
+    res.json({ token,user,userId: user._id, isAdmin: user instanceof Customer ? false : true });
   } catch (error) {
     console.log('Error occurred during login:', error.message);
     res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 export default router;
