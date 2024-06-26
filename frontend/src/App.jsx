@@ -17,12 +17,12 @@ const App = () => {
       <>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>} />
-          <Route path="customer" element={isAuth ? <User /> : <Signup />} />
+          <Route path="customer" element={isAuth ? <User /> : <Home />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="customer/:restaurentId" element={<RestaurentMenu />} />
+          <Route path="customer/:restaurentId" element={isAuth?<RestaurentMenu />: <Home/>} />
           <Route path="admin" element={<DishPage />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />}/>
       </>
     )
   );
