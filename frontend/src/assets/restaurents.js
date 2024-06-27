@@ -14,20 +14,6 @@ const restaurents = [
           country: 'India'
         },
         restaurant_img: 'https://example.com/restaurant-image.jpg',
-        opening_hours: {
-          monday: '9:00 AM - 10:00 PM',
-          tuesday: '9:00 AM - 10:00 PM',
-          wednesday: '9:00 AM - 10:00 PM',
-          thursday: '9:00 AM - 10:00 PM',
-          friday: '9:00 AM - 11:00 PM',
-          saturday: '9:00 AM - 11:00 PM',
-          sunday: '10:00 AM - 9:00 PM'
-        },
-        contact_info: {
-          phone: '022-12345678',
-          email: 'info@desitadka.com',
-          website: 'www.desitadka.com'
-        },
         menu: [
           {
             title: "starters",
