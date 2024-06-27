@@ -8,6 +8,7 @@ import RestaurentMenu from './pages/User/RestaurentMenu';
 import DishPage from './pages/Admin/dishes/dishes';
 import Home from './pages/Home/Home';
 import Signup from './pages/Signup/Signup';
+import OrderHistory from './components/orderHistory.jsx';
 import More from './pages/Admin/More/More';
 import Dashboard from './pages/Admin/Dashboard/Dashboard';
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="customer" element={<User />} />
           <Route path="signup" element={<Signup />} />
           <Route path="customer/:restaurentId" element={<RestaurentMenu />}/>
+          <Route path="orderhistory" element={<OrderHistory/>} />
           <Route path="admin" element={<More/>} />
           <Route path="admin/v1/dashboard" element={<Dashboard/>} />
         </Route>
