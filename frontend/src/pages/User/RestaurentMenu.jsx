@@ -3,7 +3,7 @@ import styles from './RestaurentMenu.module.css';
 import { useParams } from 'react-router-dom';
 import restaurents from '../../assets/restaurents';
 import MenuItem from '../../components/MenuItem/MenuItem';
-import Modal from '../../components/modal/modal';
+import Modal from '../../components/Modal/Modal';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import MenuCategory from '../../components/MenuCategory/MenuCategory';
 import Sidebar from '../../components/Sidebar/Sidebar';
