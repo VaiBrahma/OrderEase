@@ -8,7 +8,7 @@ const MenuItem = ({ item, menu, setMenu, triggerWiggle }) => {
   const handleAdd = () => {
     setMenu(prevMenu => {
       const updatedMenu = { ...prevMenu };
-      if (!updatedMenu[item.name]) {
+      if (!updatedMenu[item.name]){
         updatedMenu[item.name] = {
           quantity: 0,
           detail: item,
