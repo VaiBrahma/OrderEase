@@ -7,7 +7,7 @@ const router = express.Router();
 // Create a new order
 router.post('/create', async (req, res) => {
     try {
-    const { userId, items, paymentMethod,orderTime,totalAmount, deliveryAddress } = req.body;
+    const { userId, items, paymentMethod,cookingTime,orderTime,totalAmount, deliveryAddress } = req.body;
     console.log(userId);
     console.log(items);
     
@@ -17,6 +17,7 @@ router.post('/create', async (req, res) => {
         userId:userId,
         items:items,
         paymentMethod:paymentMethod,
+        cookingTime:cookingTime,
         totalAmount:totalAmount,
         orderTime:orderTime,
         deliveryAddress:deliveryAddress

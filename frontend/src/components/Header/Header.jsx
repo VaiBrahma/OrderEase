@@ -7,12 +7,16 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleLogout =() =>{
+    dispatch(setLogout());
+    navigate("/")
+  }
   return (
     <div className={`${styles.nav}`}>
         <img src="/icons/icon3.png" alt="food" className={`${styles.icon}`}/>
         <div className={`${styles.title}`}>OrderEase</div>
         <div className='flex justify-center items-center'>
-        <button onClick={() => dispatch(setLogout())} className='text-white  hover:bg-white hover:text-black transition duration-300 ease-in-out'>Log out</button>
+        <button onClick={handleLogout} className='text-white  hover:bg-white hover:text-black transition duration-300 ease-in-out'>Log out</button>
         <button onClick={()=> navigate("/orderhistory")} className='text-white  hover:bg-white hover:text-black transition duration-300 ease-in-out' >OrderHistoy</button>
         <img className={`${styles.icon}`} style={{filter: "invert(0)"}} src="/icons/avatar.png" alt="avatar"/>
         </div>
