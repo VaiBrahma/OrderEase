@@ -64,6 +64,9 @@ const RestaurentMenu = () => {
   const calculateTotal = () => {
     return Object.values(menu).reduce((total, item) => total + item.detail.price * item.quantity, 0);
   };
+  const calculateTime = () =>{
+    return Object.values(menu).reduce((total, item) => total + item.detail.cooking_time * item.quantity, 0);
+  }
 
   console.log(menu);
   const handleOrderSubmit = async () => {
@@ -79,8 +82,9 @@ const RestaurentMenu = () => {
         items: items,
         paymentMethod: 'Cash', // Replace with selected payment method
         totalAmount: calculateTotal(), // Implement calculateTotalAmount function
+        cookingTime:calculateTime(),
         orderTime: Date.now(),
-        deliveryAddress: table, // Replace with actual delivery address
+        deliveryAddress: 'Table'+table, // Replace with actual delivery address
       };
 
       // Make POST request to backend

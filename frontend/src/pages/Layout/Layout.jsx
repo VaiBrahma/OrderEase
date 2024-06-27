@@ -11,7 +11,6 @@ const Home = () => {
       <div className={styles.mainContent}>
         <div className={styles.contentWrapper}>
           <Outlet />
-          {!isAuth && <Navigate to='/'/>}
         </div>
       </div>
     </div>

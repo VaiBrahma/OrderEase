@@ -31,6 +31,9 @@ const orderSchema = new Schema({
     type: Number,
     required: true
   },
+  cookingTime:{
+    type:Number,
+  },
   orderTime: {
     type: Date,
     default: Date.now
