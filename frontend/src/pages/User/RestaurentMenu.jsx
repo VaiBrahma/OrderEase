@@ -31,6 +31,7 @@ const RestaurentMenu = () => {
         .then(data => setRestaurent(data))
         .catch(error => console.error('Error fetching data:', error));
 }, [restaurentId]);
+
   const handleClick = (index) => {
     setActiveRow(activeRow === index ? null : index);
   };
@@ -86,7 +87,7 @@ const RestaurentMenu = () => {
         deliveryAddress: 'Table' + table,
       };
 
-      const response = await axios.post('http://localhost:5000/api/orders/create', orderData, {
+      const response = await axios.post('/api/orders/create', orderData, {
         headers: { 'Content-Type': 'application/json' }
       });
 
@@ -203,6 +204,7 @@ const RestaurentMenu = () => {
       </Modal>
     </>
   );
+
 };
 
 export default RestaurentMenu;

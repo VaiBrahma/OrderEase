@@ -1,4 +1,3 @@
-// components/MenuCategory/MenuCategory.js
 import React from 'react';
 import styles from './MenuCategory.module.css';
 import MenuItem from '../MenuItem/MenuItem';

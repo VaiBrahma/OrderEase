@@ -33,7 +33,7 @@ function SignupComponent({ isAdmin }) {
                 await axios.post('/api/auth/admin/signup', adminUser)
                 .then((response)=>{
                     setIsSignupComplete(true);
-                    navigate('/admin');
+                    navigate('/');
                 })
                 .catch((err)=>{console.log(err.message)})
             }
@@ -47,7 +47,7 @@ function SignupComponent({ isAdmin }) {
                 await axios.post('/api/auth/signup', customerUser)
                 .then((response)=>{
                     setIsSignupComplete(true);
-                    navigate('/customer');
+                    navigate('/');
 
                 })
                 .catch((err)=>{console.log(err.message)})
