@@ -2,19 +2,21 @@ import { useState } from 'react';
 import styles from './More.module.css'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Form1 from '../../../components/MoreData/Form1/Form1';
+import ItemDetail from '../../../components/MoreData/ItemDetail/ItemDetail';
 
 function More(){
     const [no_of_tables, setNumberOfTables] = useState('');
     const [local_address, setLocalAddress] = useState('');
     const [city, setCity] = useState('');
-    const [pincode, setPincode] = useState('000000');
+    const [pincode, setPincode] = useState('');
     const [state, setState] = useState('');
-    const [isLoginComplete, setIsLoginComplete] = useState(false);
+    const [hasForm1Filled, setHasForm1Filled] = useState(false);
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
+    const handleSubmit1 = (e) => {
         e.preventDefault();
 
         const address = {
@@ -26,75 +28,20 @@ function More(){
         const restaurent_details = { no_of_tables, address };
         console.log(restaurent_details);
 
-        navigate('/admin/v1/dashboard');
+        setHasForm1Filled(true);
+
+        // navigate('/admin/v1/dashboard');
     };
-
+    
     return (
-        <div className={`${styles.loginContainer} max-w-3xl md:m-auto m-2`}>
-            {!isLoginComplete && <>
-            <h2 className="text-2xl font-bold mb-6 text-center text-white">Tell us More about your Restaurent</h2>
-            <form onSubmit={handleSubmit}>
-                <div className={styles.inputContainer}>
-                    <input
-                        required
-                        type='number'
-                        className={styles.inputField} 
-                        placeholder=" " 
-                        value={no_of_tables}
-                        onChange={(e) => setNumberOfTables(e.target.value)}
-                    />
-                    <label className={styles.inputLabel}>Number Of Tables</label>
-                </div>
-                <h3 className='text-white'>Your Address</h3>
-                <div className={styles.inputContainer}>
-                    <input 
-                        required
-                        type='text'
-                        className={styles.inputField} 
-                        placeholder=" " 
-                        value={local_address}
-                        onChange={(e) => setLocalAddress(e.target.value)}
-                    />
-                    <label className={styles.inputLabel}>Local address</label>
-                </div>
-                <div className={styles.inputContainer}>
-                    <input 
-                        required
-                        type='text'
-                        className={styles.inputField} 
-                        placeholder=" " 
-                        value={city}
-                        onChange={(e) =>setCity(e.target.value)}
-                    />
-                    <label className={styles.inputLabel}>City</label>
-                </div>
-                <div className={styles.inputContainer}>
-                    <input 
-                        required
-                        type='number'
-                        className={styles.inputField} 
-                        placeholder=" " 
-                        value={pincode}
-                        onChange={(e) => setPincode(e.target.value)}
-                    />
-                    <label className={styles.inputLabel}>Pincode</label>
-                </div>
-                <div className={styles.inputContainer}>
-                    <input 
-                        required
-                        type='text'
-                        className={styles.inputField} 
-                        placeholder=" " 
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                    />
-                    <label className={styles.inputLabel}>State</label>
-                </div>
-                <button type="submit" className={styles.loginButton}>Save & Next</button>
-            </form>
-            </>
+        <div className='h-screen w-screen bg-[#0000001c]  left-0 overflow-y-auto' style={{backdropFilter: 'blur(10px)'}}>
+            <div>
+            {hasForm1Filled ? 
+                <Form1 handleSubmit1={handleSubmit1} no_of_tables={no_of_tables} setNumberOfTables={setNumberOfTables} local_address={local_address} setLocalAddress={setLocalAddress} city={city} setCity={setCity} pincode={pincode} setPincode={setPincode} state={state} setState={setState}/> 
+                : 
+                <ItemDetail/>
             }
-
+            </div>
         </div>
     );
 }

@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/restaurents', async(req, res)=>{
     try {
         const restaurants = await Admin.find();
-        console.log(restaurants);
+        // console.log(restaurants);
         res.json(restaurants);
     } catch (error) {
         res.status(500).json({ message: error.message });
