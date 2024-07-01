@@ -11,7 +11,6 @@ import { useSelector } from 'react-redux';
 import axios from 'axios'
 
 const RestaurentMenu = () => {
-  const [activeRow, setActiveRow] = useState(null);
   const [menu, setMenu] = useState({});
   const [wiggle, setWiggle] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -23,6 +22,7 @@ const RestaurentMenu = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [paymentStep, setPaymentStep] = useState(null);
   const [table, setTabel] = useState(null);
+  const [isRowOpen, setIsRowOpen] = useState([false, false, false, false, false, false, false]);
   const userid = useSelector((state) => state.user._id)
 
   useEffect(() => {
@@ -33,7 +33,14 @@ const RestaurentMenu = () => {
 }, [restaurentId]);
 
   const handleClick = (index) => {
-    setActiveRow(activeRow === index ? null : index);
+    setIsRowOpen(prev=>{
+      const next = [];
+      for(let i = 0; i < prev.length; i++){
+        if(i==index) next[i] = !prev[i];
+        else next[i] = prev[i];
+      }
+      return next;
+    })
   };
 
   const triggerWiggle = () => {
@@ -127,7 +134,7 @@ const RestaurentMenu = () => {
           </div>
         )}
         {restaurent.menu.map((category, index) => (
-          <MenuCategory key={index} category={category} index={index} activeRow={activeRow} handleClick={handleClick} menu={menu} setMenu={setMenu} triggerWiggle={triggerWiggle} />
+          <MenuCategory key={index} category={category} index={index} isRowOpen={isRowOpen} handleClick={handleClick} menu={menu} setMenu={setMenu} triggerWiggle={triggerWiggle} />
         ))}
         <div className='h-[10em] w-full'></div>
       </div>
