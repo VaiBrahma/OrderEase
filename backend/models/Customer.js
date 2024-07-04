@@ -10,6 +10,7 @@ const customerSchema = new mongoose.Schema({
       rating: Number,
       date: String,
       comment: String,
+      id: String,
     },
   ],
 });

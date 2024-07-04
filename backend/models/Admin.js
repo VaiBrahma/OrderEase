@@ -38,6 +38,7 @@ const adminSchema = new mongoose.Schema({
       rating: Number,
       date: String,
       comment: String,
+      id: String,
     },
   ],
   services: [String],
