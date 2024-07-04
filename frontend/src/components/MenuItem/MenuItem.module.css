@@ -4,7 +4,7 @@
     border-radius: 2em;
     background: transparent;
     display: flex;
-    height: 150px;
+    min-height: 150px;
     margin: auto;
 }
 
@@ -60,4 +60,11 @@
 }
 .remove:active, .add:active{
     transform: scale(1);
+}
+
+.inputt{
+    padding: 10px; 
+    border: 1px solid #ffffff3c;
+    background-color: transparent;
+    border-radius: 10px;
 }

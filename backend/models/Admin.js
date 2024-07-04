@@ -9,27 +9,13 @@ const adminSchema = new mongoose.Schema({
   admin_mobile_no: { type: Number, unique: true },
   no_of_tables: Number,
   address: {
-    street: String,
+    local_address: String,
     city: String,
     state: String,
     postal_code: String,
     country: String,
   },
   restaurant_img: String,
-  opening_hours: {
-    monday: String,
-    tuesday: String,
-    wednesday: String,
-    thursday: String,
-    friday: String,
-    saturday: String,
-    sunday: String,
-  },
-  contact_info: {
-    phone: String,
-    email: String,
-    website: String,
-  },
   menu: [
     {
       title: String,
@@ -40,6 +26,8 @@ const adminSchema = new mongoose.Schema({
           vegetarian: Boolean,
           isAvailable: Boolean,
           image_src: String,
+          id: String,
+          category: String,
         },
       ],
     },
@@ -48,6 +36,7 @@ const adminSchema = new mongoose.Schema({
     {
       user: String,
       rating: Number,
+      date: String,
       comment: String,
     },
   ],

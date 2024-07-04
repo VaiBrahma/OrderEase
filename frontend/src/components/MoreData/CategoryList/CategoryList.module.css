@@ -1,0 +1,23 @@
+.categoryList{
+    /* border: 2px solid red; */
+    margin: 50px;
+}
+
+.category{
+    border: 1px solid #ffffff40;
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 50px;
+    background: #0000001a;
+    backdrop-filter: blur(5px);
+    color: white;
+}
+
+.category:hover{
+    transition:all 0.5s ease-in-out;
+    background-color: #aee85d;
+    color: black
+}

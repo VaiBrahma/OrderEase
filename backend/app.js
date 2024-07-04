@@ -6,6 +6,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import orderRoutes from './routes/order.js';
 import getRestaurentsRoutes from './routes/getRestaurents.js';
+import getMenuItemsRoutes from './routes/getMenuItems.js';
 
 dotenv.config();
 connectDB();
@@ -20,5 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/data', getRestaurentsRoutes);
+app.use('/api/menu', getMenuItemsRoutes);
 
 export default app;

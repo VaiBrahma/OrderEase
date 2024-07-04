@@ -5,6 +5,13 @@ const customerSchema = new mongoose.Schema({
   name: String,
   email: { type: String, unique: true },
   password: String,
+  reviews: [
+    {
+      rating: Number,
+      date: String,
+      comment: String,
+    },
+  ],
 });
 
 const Customer = mongoose.model('customer', customerSchema);
