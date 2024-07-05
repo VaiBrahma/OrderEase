@@ -5,6 +5,9 @@ import './index.css'
 import authReducer from './state'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
+import { ToastContainer, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import{
   persistStore,
   persistReducer,
@@ -35,7 +38,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistStore(store)}>
-        <App />
+      <App />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+          style={{ fontFamily: 'Arial, sans-serif' }} 
+        />
       </PersistGate>
     </Provider>
   </React.StrictMode>,

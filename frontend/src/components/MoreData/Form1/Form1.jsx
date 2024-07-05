@@ -3,8 +3,9 @@ import styles from './Form1.module.css'
 
 const Form1 = ({handleSubmit1, no_of_tables, setNumberOfTables,  local_address, setLocalAddress, city, setCity, pincode, setPincode, state, setState}) => {
   return (
-    <div className='mt-[5rem]'>
-        <h2 className="text-2xl font-bold mb-6 text-center text-white">Tell us More about your Restaurent</h2>
+    <div  className="border-[1px] border-[#d1d1d17c] mx-8 mt-[5rem] gap-4 rounded-3xl p-8 text-center flex bg-[#2c2c2cba] flex-col md:flex-row justify-center items-center" style={{backdropFilter:'blur(10px)',textShadow: "0 2px 5px black"}}>
+        <div>
+        <h2 className="text-4xl font-bold mb-6 text-center text-[orange]">Tell us More about your Restaurent</h2>
         <div className={`${styles.loginContainer} max-w-3xl md:m-auto m-2`}>
                 <form onSubmit={handleSubmit1}>
                     <div className={styles.inputContainer}>
@@ -35,6 +36,7 @@ const Form1 = ({handleSubmit1, no_of_tables, setNumberOfTables,  local_address, 
                     </div>
                     <button type="submit" className={styles.loginButton} >Save & Next</button>
                 </form>
+        </div>
         </div>
     </div>
   )

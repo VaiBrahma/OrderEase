@@ -12,7 +12,7 @@ const adminSchema = new mongoose.Schema({
     local_address: String,
     city: String,
     state: String,
-    postal_code: String,
+    pincode: Number,
     country: String,
   },
   restaurant_img: String,
@@ -41,7 +41,6 @@ const adminSchema = new mongoose.Schema({
       id: String,
     },
   ],
-  services: [String],
 });
 
 const Admin = mongoose.model('admin', adminSchema);

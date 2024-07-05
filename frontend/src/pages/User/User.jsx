@@ -3,6 +3,7 @@ import MenuItem from '../../components/MenuItem/MenuItem';
 import RestaurentCard from '../../components/RestaurentCard/RestaurentCard';
 import styles from './User.module.css';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 
 const User = () => {
@@ -10,7 +11,7 @@ const User = () => {
   const [restaurents, setRestaurents] = useState([]);
 
   useEffect(() => {
-      fetch('/api/data/restaurents')
+      fetch('/api/data/restaurants')
           .then(response => response.json())
           .then(data => setRestaurents(data))
           .catch(error => console.error('Error fetching data:', error));

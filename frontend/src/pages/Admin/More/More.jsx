@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import styles from './More.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Form1 from '../../../components/MoreData/Form1/Form1';
 import ItemDetail from '../../../components/MoreData/ItemDetail/ItemDetail';
+import axios from 'axios'
+import { toast } from 'react-toastify';
 
 function More() {
   const [no_of_tables, setNumberOfTables] = useState('');
@@ -12,6 +14,7 @@ function More() {
   const [pincode, setPincode] = useState('');
   const [state, setState] = useState('');
   const [hasForm1Filled, setHasForm1Filled] = useState(false);
+  const id = useSelector((state)=>{return state.id});
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -21,9 +24,25 @@ function More() {
 
     const address = { local_address, city, pincode, state };
     const restaurant_details = { no_of_tables, address };
-    console.log(restaurant_details);
 
-    setHasForm1Filled(true);
+    const saveExtraDetails = async () => {
+      await axios.post('http://localhost:5000/api/data/restaurants/668620a7bbce817877963095',restaurant_details)
+      .then(()=>{setHasForm1Filled(true);})
+      .catch(err=>{
+        console.log(err.message);
+      })
+    }
+
+    const myPromise = saveExtraDetails();
+
+    toast.promise(
+      myPromise,
+      {
+        pending: 'Uploading your given details...',
+        success: 'Uploaded Address and Table Number successfully! 👌',
+        error: 'Error Uploading data! 🤯'
+      },
+    )
   };
 
   return (

@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './RestaurentMenu.module.css';
 import { useParams } from 'react-router-dom';
-// import restaurents from '../../assets/restaurents';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import Modal from '../../components/Modal/Modal';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -26,7 +25,7 @@ const RestaurentMenu = () => {
   const userid = useSelector((state) => state.user._id)
 
   useEffect(() => {
-    fetch(`/api/data/restaurents/${restaurentId}`)
+    fetch(`/api/data/restaurants/${restaurentId}`)
         .then(response => response.json())
         .then(data => setRestaurent(data))
         .catch(error => console.error('Error fetching data:', error));
