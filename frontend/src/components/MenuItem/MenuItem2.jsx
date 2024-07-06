@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './MenuItem.module.css';
 
-const MenuItem2 = ({ id, name, image_src, vegetarian, price, onEdit, onDelete }) => {
+const MenuItem2 = ({ item, id, name, image_src, vegetarian, price, onEdit, onDelete,category, isButtonNeeded=true }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(name);
   const [editPrice, setEditPrice] = useState(price);
@@ -12,7 +12,7 @@ const MenuItem2 = ({ id, name, image_src, vegetarian, price, onEdit, onDelete })
   };
 
   const handleSave = () => {
-    onEdit(id, editName, editPrice, editVegetarian);
+    onEdit(item, editName, editPrice, editVegetarian);
     setIsEditing(false);
   };
 
@@ -22,11 +22,13 @@ const MenuItem2 = ({ id, name, image_src, vegetarian, price, onEdit, onDelete })
     setEditPrice(price);
     setEditVegetarian(vegetarian);
   };
+
+  const categoryClass = `category-${category}`;
   
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} w-[100%]`}>
       <div className={styles.left} style={{ background: `url(${image_src || '/images/defaultFoodIcon.jpeg'}) no-repeat center center/cover` }}></div>
-      <div className={styles.right}>
+      <div className={`${styles.right} ${styles[categoryClass]}`}>
         {isEditing ? (
           <div className='flex flex-col gap-2'>
             <input className={styles.inputt} type="text" value={editName} onChange={(e) => setEditName(e.target.value)} />
@@ -35,9 +37,10 @@ const MenuItem2 = ({ id, name, image_src, vegetarian, price, onEdit, onDelete })
                 <option value='false'> Non-vegetarian</option>
             </select>
             <input className={styles.inputt} type="number" value={editPrice} onChange={(e) => setEditPrice(e.target.value)} />
-            <div className="btns">
-                <button onClick={handleSave}>Save</button>
-                <button onClick={handleCancel}>Cancel</button>
+            <div className='h-[10px]'></div>
+            <div className={styles.buttons}>
+                <button onClick={handleSave} className='my-1.5 mx-1 px-2 bg-[#00000049] rounded-md shadow-md hover:bg-black'>Save</button>
+                <button onClick={handleCancel} className='my-1.5 px-2 bg-[#00000049] rounded-md shadow-md hover:bg-black'>Cancel</button>
             </div>
           </div>
         ) : (
@@ -45,10 +48,10 @@ const MenuItem2 = ({ id, name, image_src, vegetarian, price, onEdit, onDelete })
             <div className={styles.title}>{name}</div>
             <div className={styles.desc}>{vegetarian ? 'Vegetarian' : 'Non-Vegetarian'}</div>
             <div className={styles.price}><span className='text-[#ffffff61]'>Price:</span> ₹{price} /-</div>
-            <div className={styles.buttons}>
-              <button className={styles.edit} onClick={handleEdit}>Edit</button>
-              <button className={styles.delete} onClick={() => onDelete(id)}>Delete</button>
-            </div>
+            {isButtonNeeded && <div className={styles.buttons}>
+              <button className={styles.edit} onClick={handleEdit}><img src="/icons/edit.png" alt="edit" /></button>
+              <button className={styles.delete} onClick={() => onDelete(id)}> <img src="/icons/delete.png" alt="delete" /> </button>
+            </div>}
           </>
         )}
       </div>

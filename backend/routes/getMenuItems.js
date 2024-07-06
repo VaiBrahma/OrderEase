@@ -48,7 +48,8 @@ router.post('/:adminId/addItem', getRestaurant, async (req, res) => {
               isAvailable: newItem.isAvailable,
               id: newItem.id || new Date().getTime().toString(),
               image_src: newItem.image_src || '',
-              cooking_time: newItem.cooking_time || ''
+              cooking_time: newItem.cooking_time || '',
+              category: newItem.category
           });
       });
       

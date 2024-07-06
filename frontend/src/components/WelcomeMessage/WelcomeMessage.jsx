@@ -1,9 +1,10 @@
 import React from "react";
 import Lottie from 'lottie-react';
 import cookingAnimation from '../../assets/animations/cooking.json';
+import styles from './WelcomeMessage.module.css'
 const WelcomeMessage = () => {
   return (
-    <div className="border-[1px] border-[#d1d1d17c] mx-2 md:m-auto gap-4 rounded-lg p-8 max-w-3xl text-center flex bg-[#2c2c2cba] flex-col md:flex-row justify-center items-center" style={{backdropFilter:'blur(10px)',textShadow: "0 2px 5px black", marginTop: '4em'}}>
+    <div className={`border-[1px] border-[#d1d1d17c] gap-4 rounded-lg p-8 max-w-3xl text-center flex bg-[#2c2c2cba] flex-col md:flex-row justify-center items-center md:m-auto md:mt-[4em] ${styles.bigContainer}`}>
       <div>
         <Lottie animationData={cookingAnimation} className="rounded-xl w-[200px] h-[200px] bg-[orange]"/>
       </div>
