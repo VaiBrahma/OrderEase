@@ -170,9 +170,9 @@ const ItemDetail = () => {
 
   return (
     <div>
-      <button onClick={slide} className='z-10 bg-blue-600 rounded-full p-2 hover:bg-blue-700 text-white'>Add Item</button>
-      <CategoryList menu={menu} onEdit={handleEdit} onDelete={handleDelete} categoryRef={categoryRef} />
-      <div ref={formRef} className="border-[1px] border-[#d1d1d17c] mx-8 gap-4 rounded-3xl p-8 text-center flex flex-col bg-[#2c2c2cba] mb-[5rem] md:flex-row justify-center items-center" style={{backdropFilter:'blur(10px)',textShadow: "0 2px 5px black", minHeight: "calc(100vh - 50px)"}}>
+      <button onClick={slide} className='z-10 bg-blue-600 rounded-full p-2 hover:bg-blue-700 text-white absolute m-4'>Add Item</button>
+      <div><CategoryList menu={menu} onEdit={handleEdit} onDelete={handleDelete} categoryRef={categoryRef} /></div>
+      <div ref={formRef} className={`${styles.bg} border-[1px] border-[#d1d1d17c] mx-8 gap-4 rounded-3xl p-8 text-center flex flex-col bg-[#2c2c2cba] mb-[5rem] md:flex-row justify-center items-center`}>
         <div className={styles.slide}>
           <h2 className="text-4xl font-bold mb-6 text-center text-[orange]">What is in the Menu?</h2>
           <div className='text-start'><MenuItem2 name={name || "Name"} image_src={image_src} vegetarian={vegetarian} price={price || 0} isButtonNeeded={false}/></div>

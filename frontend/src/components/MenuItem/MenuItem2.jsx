@@ -30,19 +30,21 @@ const MenuItem2 = ({ item, id, name, image_src, vegetarian, price, onEdit, onDel
       <div className={styles.left} style={{ background: `url(${image_src || '/images/defaultFoodIcon.jpeg'}) no-repeat center center/cover` }}></div>
       <div className={`${styles.right} ${styles[categoryClass]}`}>
         {isEditing ? (
-          <div className='flex flex-col gap-2'>
-            <input className={styles.inputt} type="text" value={editName} onChange={(e) => setEditName(e.target.value)} />
-            <select className={styles.inputt} value={editVegetarian} onChange={(e) => setEditVegetarian(e.target.value)}>
-                <option value='true'> Vegetarian</option>
-                <option value='false'> Non-vegetarian</option>
-            </select>
-            <input className={styles.inputt} type="number" value={editPrice} onChange={(e) => setEditPrice(e.target.value)} />
-            <div className='h-[10px]'></div>
-            <div className={styles.buttons}>
-                <button onClick={handleSave} className='my-1.5 mx-1 px-2 bg-[#00000049] rounded-md shadow-md hover:bg-black'>Save</button>
-                <button onClick={handleCancel} className='my-1.5 px-2 bg-[#00000049] rounded-md shadow-md hover:bg-black'>Cancel</button>
+          <form onSubmit={handleSave}>
+            <div className='flex flex-col gap-2'>
+              <input className={styles.inputt} type="text" value={editName} onChange={(e) => setEditName(e.target.value)} />
+              <select className={styles.inputt} value={editVegetarian} onChange={(e) => setEditVegetarian(e.target.value)}>
+                  <option value='true'> Vegetarian</option>
+                  <option value='false'> Non-vegetarian</option>
+              </select>
+              <input className={styles.inputt} type="number" value={editPrice} onChange={(e) => setEditPrice(e.target.value)} />
+              <div className='h-[10px]'></div>
+              <div className={styles.buttons}>
+                  <button type='submit' className='my-1.5 mx-1 px-2 bg-[#00000049] rounded-md shadow-md hover:bg-black'>Save</button>
+                  <button onClick={handleCancel} className='my-1.5 px-2 bg-[#00000049] rounded-md shadow-md hover:bg-black'>Cancel</button>
+              </div>
             </div>
-          </div>
+          </form>
         ) : (
           <>
             <div className={styles.title}>{name}</div>

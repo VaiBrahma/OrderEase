@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Layout from './pages/Layout/Layout';
 import User from './pages/User/User';
 import NotFound from './components/NotFound';
 import RestaurentMenu from './pages/User/RestaurentMenu';
-import DishPage from './pages/Admin/dishes/dishes';
 import Home from './pages/Home/Home';
 import Signup from './pages/Signup/Signup';
 import OrderHistory from './components/orderHistory.jsx';
 import More from './pages/Admin/More/More';
 import Dashboard from './pages/Admin/Dashboard/Dashboard';
+import PrivateRoutesCustomer from './components/PrivateRoutesCustomer.jsx';
+import PrivateRoutesAdmin from './components/PrivateRoutesAdmin.jsx';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -18,12 +18,16 @@ const App = () => {
       <>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="customer" element={<User />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="customer/:restaurentId" element={<RestaurentMenu />}/>
-          <Route path="orderhistory" element={<OrderHistory/>} />
-          <Route path="admin" element={<More/>} />
-          <Route path="admin/v1/dashboard" element={<Dashboard/>} />
+          <Route element={<PrivateRoutesCustomer/>}>
+              <Route path="customer" element={<User />} />
+              <Route path="customer/:restaurentId" element={<RestaurentMenu />}/>
+              <Route path="orderhistory" element={<OrderHistory/>} />
+          </Route>
+          <Route element={<PrivateRoutesAdmin/>}>
+              <Route path="admin" element={<More/>} />
+              <Route path="admin/v1/dashboard" element={<Dashboard/>} />
+          </Route>
         </Route>
         <Route path="*" element={<NotFound />}/>
       </>

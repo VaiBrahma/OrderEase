@@ -102,3 +102,10 @@
         transform: scale(1) translateY(0);
     }
 }
+
+.bg{
+    backdrop-filter: blur(10px);
+    text-shadow: 0 2px 5px black;
+    min-height: calc(100vh - 50px);
+    border: none;
+}
