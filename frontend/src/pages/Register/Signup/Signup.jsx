@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "./Signup.module.css";
 import { useNavigate } from "react-router-dom";
-import SignupComponent from "../../components/Register/Signup/SignupComponent";
+import SignupComponent from "../../../components/RegisterComponent/SignupComponent/SignupComponent";
 
 const Signup = () => {
   const [isAdmin, setIsAdmin] = useState(null);
@@ -30,7 +30,7 @@ const Signup = () => {
         </div>
       </div>
       <div className="mt-4 text-center">
-        <p>Already have an account? <button onClick={() => navigate("/")} className="text-blue-500">Login</button></p>
+        <p>Already have an account? <button onClick={() => navigate("/login")} className="text-blue-500">Login</button></p>
       </div>
       <div className="my-[50px]" ref={signUpRef}>
         {isAdmin !== null && <SignupComponent isAdmin={isAdmin} />}

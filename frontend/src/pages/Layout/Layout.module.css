@@ -4,7 +4,9 @@ html, body {
 }
 
 .background {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100vw;
     background: url('/images/background.jpg') no-repeat center center/cover;

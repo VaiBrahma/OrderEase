@@ -29,7 +29,7 @@ router.post("/signup", async (req, res) => {
 
 // Admin signup
 router.post("/admin/signup", async (req, res) => {
-  const { title, admin, admin_handle, admin_mobile_no, password } = req.body;
+  const { title, admin, admin_handle, admin_mobile_no, password, no_of_tables, address } = req.body;
 
   try {
     const adminExists = await Admin.findOne({ admin_handle });
@@ -45,6 +45,8 @@ router.post("/admin/signup", async (req, res) => {
       admin_mobile_no,
       password: hashedPassword,
       isAdmin: true,
+      no_of_tables,
+      address
     });
     await newAdmin.save();
 
@@ -55,7 +57,7 @@ router.post("/admin/signup", async (req, res) => {
   }
 });
 
-// Customer login
+// User login
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 

@@ -40,7 +40,7 @@ const MenuItem = ({ item, menu, setMenu, triggerWiggle }) => {
 
   return (
     <div className={`${styles.card}`}>
-      <div className={`${styles.left}`} style={{ background: `url(${item.image_rc || '/images/defaultFoodIcon.jpeg'}) no-repeat center center/cover` }}></div>
+      <div className={`${styles.left}`} style={{ background: `url(${item.image_src || '/images/defaultFoodIcon.jpeg'}) no-repeat center center/cover` }}></div>
       <div className={`${styles.right}`}>
         <div className={`${styles.title}`}>{item.name}</div>
         <div className={`${styles.desc}`}>{item.vegetarian ? 'vegetarian' : 'non-vegetarian'}</div>

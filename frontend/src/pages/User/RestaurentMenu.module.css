@@ -1,7 +1,6 @@
 .app {
   padding: 20px;
   border-top: 1px solid #ffffff3a;
-  height: calc(100vh - 50px);
   background: #00000048;
   backdrop-filter: blur(10px);
 }
@@ -12,6 +11,15 @@
   font-size: 1.5em;
 }
 
+.address{
+  border-bottom: 1px solid #ffffff2e;
+  height: 80px;
+  margin-bottom: 20px;
+  transform: translateY(-10px);
+  color: #ffffffcd;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 0.8em;
+}
 .row {
   margin-bottom: 10px;
   transition: all 0.3s ease-in-out;

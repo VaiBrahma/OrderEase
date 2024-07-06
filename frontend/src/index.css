@@ -13,8 +13,16 @@ body{
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6{
   font-family: "Playwrite ES", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+button:active{
+  transition: all 0.1s ease-in-out;
+  transform: scale(0.95);
 }

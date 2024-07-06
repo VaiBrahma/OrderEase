@@ -4,7 +4,7 @@
     border-radius: 2em;
     background: transparent;
     display: flex;
-    height: 150px;
+    min-height: 150px;
     margin: auto;
 }
 
@@ -28,7 +28,7 @@
     position: relative;
 }
 .card:hover{
-    background-color: #ffffffa2;
+    background-color: #00000073;
     /* border: 2px solid orange; */
     /* color: #000000dc; */
 }
@@ -61,3 +61,47 @@
 .remove:active, .add:active{
     transform: scale(1);
 }
+
+.inputt{
+    padding: 10px; 
+    border: 1px solid #ffffff3c;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+  .category-starters {
+    background-color: #8d321d;
+  }
+  .category-soups {
+    background-color: #87651c;
+  }  
+  .category-main {
+    background-color: #3e8b1b;
+  }
+    .category-desserts {
+    background-color: #1b847f;
+  }
+    .category-drinks {
+    background-color: #1d4185;
+  }
+  .category-snacks {
+    background-color: #551d80;
+  }
+
+  .edit, .delete{
+    filter: invert() opacity(0.4);
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 8px;
+    margin-bottom: 15px;
+    transform: scale(1.4)
+  }
+
+  .edit:hover, .delete:hover{
+    filter: opacity(1) invert(1);
+  }
+
+  .edit:active, .delete:active{
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.2);
+  }

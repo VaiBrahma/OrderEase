@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import styles from "./Home.module.css";
 import { useNavigate } from "react-router-dom";
 import WelcomeMessage from "../../components/WelcomeMessage/WelcomeMessage";
-import Login from "../../components/Register/Login/Login";
+import Login from "../../components/RegisterComponent/LoginComponent/LoginComponent";
 
 const Home = () => {
   const navigate = useNavigate();

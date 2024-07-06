@@ -20,7 +20,7 @@ const Sidebar = ({ isSidebarOpen, setSidebarOpen, isExpanded, toggleExpand, menu
         <div className={styles.bill}>
           {Object.entries(menu).map(([itemName, itemData]) => (
             <div key={itemName} className={styles.billItem}>
-              <img src={itemData.detail.image_srrc || '/images/defaultFoodIcon.jpeg'} alt={itemName} className={styles.billItemImage} />
+              <div style={{background: `url(${itemData.detail.image_src || '/images/defaultFoodIcon.jpeg'}) no-repeat center center/cover`}}className={styles.billItemImage}></div>
               <div className={styles.billItemDetails}>
                 <span className='absolute left-0 w-[10rem]'>{itemName}</span>
                 <span className='absolute right-[4em]'>{itemData.quantity}</span>

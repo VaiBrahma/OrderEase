@@ -5,6 +5,9 @@ import authRoutes from './routes/auth.js';
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import orderRoutes from './routes/order.js';
+import getRestaurentsRoutes from './routes/getRestaurents.js';
+import getMenuItemsRoutes from './routes/getMenuItems.js';
+import getReviewRoutes from './routes/reviews.js';
 
 dotenv.config();
 connectDB();
@@ -18,5 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/data', getRestaurentsRoutes);
+app.use('/api/menu', getMenuItemsRoutes);
+app.use('/api/review', getReviewRoutes);
 
 export default app;

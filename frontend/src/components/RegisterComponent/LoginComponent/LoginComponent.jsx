@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import styles from './Login.module.css';
-import { setLogin } from '../../../state';
-import { useDispatch } from 'react-redux';
+import styles from './LoginComponent.module.css';
+import state, { setLogin } from '../../../state';
+import { useDispatch, useSelector } from 'react-redux';
 
-function Login() {
+function LoginComponent() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -17,7 +17,6 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const user = { name, email, password };
-        // console.log(user);
 
         const login = async (user) => {
             await axios.post('/api/auth/login',user)
@@ -26,13 +25,16 @@ function Login() {
 
 
                 const loggedIn =  response.data;
-                console.log(loggedIn);
+                
                 if (loggedIn) {
                     dispatch(setLogin({
                         token: loggedIn.token,
                         user: loggedIn.user,
+                        isAdmin : loggedIn.isAdmin,
+                        userId: loggedIn.userId
                     })
                     )
+
                 }
 
                 if(response.data.isAdmin) navigate('/admin');
@@ -41,7 +43,9 @@ function Login() {
             .catch((error)=> {console.log(error.message)})
         }
         login(user);
-    };
+
+        
+    };  
 
     return (
         <div className={`${styles.loginContainer} max-w-3xl md:m-auto m-2`}>
@@ -96,4 +100,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginComponent;
