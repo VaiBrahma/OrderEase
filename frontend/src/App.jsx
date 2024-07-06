@@ -1,9 +1,7 @@
 import React from 'react';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Layout from './pages/Layout/Layout';
-import User from './pages/User/User';
 import NotFound from './components/NotFound';
-import RestaurentMenu from './pages/User/RestaurentMenu';
 import Home from './pages/Home/Home';
 import Signup from './pages/Register/Signup/Signup.jsx';
 import OrderHistory from './components/orderHistory.jsx';
@@ -17,6 +15,8 @@ import PaymentHistory from './pages/Admin/PaymentHistory/PaymentHistory.jsx';
 import Login from './pages/Register/Login/Login.jsx';
 import AdminLayout from './pages/Admin/AdminLayout/AdminLayout.jsx';
 import PrivateRoutesDefault from './components/PrivateRoutesDefault.jsx';
+import Customer from './pages/Customer/Customer.jsx';
+import RestaurantMenu from './pages/Customer/RestaurantMenu.jsx';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -29,8 +29,8 @@ const App = () => {
               <Route path="signup" element={<Signup />} />
           </Route>
           <Route element={<PrivateRoutesCustomer/>}>
-              <Route path="customer" element={<User />} />
-              <Route path="customer/:restaurentId" element={<RestaurentMenu />}/>
+              <Route path="customer" element={<Customer />} />
+              <Route path="customer/:restaurentId" element={<RestaurantMenu />}/>
               <Route path="orderhistory" element={<OrderHistory/>} />
           </Route>
           <Route element={<PrivateRoutesAdmin/>}>
