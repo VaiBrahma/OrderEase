@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import styles from './Login.module.css';
+import styles from './LoginComponent.module.css';
 import state, { setLogin } from '../../../state';
 import { useDispatch, useSelector } from 'react-redux';
 
-function Login() {
+function LoginComponent() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -100,4 +100,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginComponent;

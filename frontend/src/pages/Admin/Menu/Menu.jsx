@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './ItemDetail.module.css';
-import CategoryList from '../CategoryList/CategoryList';
+import styles from './Menu.module.css';
+import CategoryList from '../../../components/MoreData/CategoryList/CategoryList';
+import MenuItem2 from '../../../components/MenuItem/MenuItem2';
 import { toast } from 'react-toastify';
 import axios from 'axios'
-import MenuItem2 from '../../MenuItem/MenuItem2';
 import { useSelector } from 'react-redux';
 
-const ItemDetail = () => {
+const Menu = () => {
   const [menu, setMenu] = useState([]);
   const [title, setTitle] = useState('');
   const [name, setName] = useState('');
@@ -222,4 +222,4 @@ const ItemDetail = () => {
   )
 }
 
-export default ItemDetail;
+export default Menu;

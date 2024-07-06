@@ -3,12 +3,13 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 const PrivateRoutesCustomer = () => {
   const auth = useSelector((state)=>{return state.user}) || {isAdmin : null};
-  console.log(auth.isAdmin);
+  const token = useSelector((state)=>{return state.token}) || null;
+  // console.log(auth, token);
 return (
     <>
-      {auth.isAdmin === false && <Outlet />}
-      {auth.isAdmin === true && <Navigate to="/admin" />}
-      {auth.isAdmin === null && <Navigate to="/" />}
+      {token !== null & auth.isAdmin === false && <Outlet />}
+      {token !== null & auth.isAdmin === true && <Navigate to="/admin" />}
+      {token === null & auth.isAdmin === null && <Navigate to="/" />}
     </>
   )
 }
