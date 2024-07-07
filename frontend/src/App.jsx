@@ -30,7 +30,7 @@ const App = () => {
           </Route>
           <Route element={<PrivateRoutesCustomer/>}>
               <Route path="customer" element={<Customer />} />
-              <Route path="customer/:restaurentId" element={<RestaurantMenu />}/>
+              <Route path="customer/:restaurantId" element={<RestaurantMenu />}/>
               <Route path="orderhistory" element={<OrderHistory/>} />
           </Route>
           <Route element={<PrivateRoutesAdmin/>}>

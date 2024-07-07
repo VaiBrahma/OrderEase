@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styles from './RestaurantMenu.module.css';
+import styles from './RestaurantMenu.module.css'; // Ensure the CSS file name matches this import
 import { useParams } from 'react-router-dom';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import Modal from '../../components/Modal/Modal';
@@ -7,7 +7,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import MenuCategory from '../../components/MenuCategory/MenuCategory';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector } from 'react-redux';
-import axios from 'axios'
+import axios from 'axios';
 
 const RestaurantMenu = () => {
   const [menu, setMenu] = useState({});
@@ -15,31 +15,31 @@ const RestaurantMenu = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isExpanded, setExpanded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { restaurentId } = useParams();
-  const [restaurent, setRestaurent] = useState({menu:[], address: {}});
+  const { restaurantId } = useParams();
+  const [restaurant, setRestaurant] = useState({ menu: [], address: {} });
   const sidebarRef = useRef();
   const [isModalOpen, setModalOpen] = useState(false);
   const [paymentStep, setPaymentStep] = useState(null);
-  const [table, setTabel] = useState(null);
+  const [table, setTable] = useState(null);
   const [isRowOpen, setIsRowOpen] = useState([false, false, false, false, false, false, false]);
-  const userid = useSelector((state) => state.user._id)
+  const userid = useSelector((state) => state.user._id);
 
   useEffect(() => {
-    fetch(`/api/data/restaurants/${restaurentId}`)
-        .then(response => response.json())
-        .then(data => setRestaurent(data))
-        .catch(error => console.error('Error fetching data:', error));
-}, [restaurentId]);
+    fetch(`/api/data/restaurants/${restaurantId}`)
+      .then(response => response.json())
+      .then(data => setRestaurant(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, [restaurantId]);
 
   const handleClick = (index) => {
-    setIsRowOpen(prev=>{
+    setIsRowOpen(prev => {
       const next = [];
-      for(let i = 0; i < prev.length; i++){
-        if(i==index) next[i] = !prev[i];
+      for (let i = 0; i < prev.length; i++) {
+        if (i === index) next[i] = !prev[i];
         else next[i] = prev[i];
       }
       return next;
-    })
+    });
   };
 
   const triggerWiggle = () => {
@@ -104,19 +104,18 @@ const RestaurantMenu = () => {
     }
   };
 
-  const filteredItems = restaurent.menu.flatMap(category => category.items).filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  const filteredItems = restaurant.menu.flatMap(category => category.items).filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   return (
     <>
       <div className={styles.app}>
-
-        <h1 className={styles.title}>{restaurent.title}</h1>
+        <h1 className={styles.title}>{restaurant.title}</h1>
         <div className={styles.address}>
-          <h1 className={styles.la}>{restaurent.address.local_address}</h1>
-          <h1 className={styles.city}>{restaurent.address.city} - {restaurent.address.pincode}</h1>
-          <h1 className={styles.state}>{restaurent.address.state}</h1>
+          <h1 className={styles.la}>{restaurant.address.local_address}</h1>
+          <h1 className={styles.city}>{restaurant.address.city} - {restaurant.address.pincode}</h1>
+          <h1 className={styles.state}>{restaurant.address.state}</h1>
         </div>
-        
+
         <div className='mb-10'>
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
@@ -132,7 +131,7 @@ const RestaurantMenu = () => {
             </div>
           </div>
         )}
-        {restaurent.menu.map((category, index) => (
+        {restaurant.menu.map((category, index) => (
           <MenuCategory key={index} category={category} index={index} isRowOpen={isRowOpen} handleClick={handleClick} menu={menu} setMenu={setMenu} triggerWiggle={triggerWiggle} />
         ))}
         <div className='h-[10em] w-full'></div>
@@ -148,7 +147,7 @@ const RestaurantMenu = () => {
           <>
             <h2 className="text-xl font-bold mb-4">Choose Payment Method</h2>
             <div className="space-y-4">
-              <input placeholder='Enter Table Number' className="w-full bg-gray-300 text-black p-2 rounded-lg" onChange={(e) => setTabel(e.target.value)} />
+              <input placeholder='Enter Table Number' className="w-full bg-gray-300 text-black p-2 rounded-lg" onChange={(e) => setTable(e.target.value)} />
               <button type="button" className="w-full bg-green-500 text-white p-2 rounded-lg" onClick={() => selectPaymentStep('pay-now')}>
                 Pay Now
               </button>
@@ -210,7 +209,6 @@ const RestaurantMenu = () => {
       </Modal>
     </>
   );
-
 };
 
 export default RestaurantMenu;
