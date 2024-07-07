@@ -1,0 +1,42 @@
+.reviewContainer {
+    border: 1px solid #cccccc58;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #000000;
+  }
+  
+  .reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .userName {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .reviewDate {
+    font-size: 0.9em;
+    color: #888;
+  }
+  
+  .rating {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ffb400;
+  }
+  
+  .comment {
+    margin-top: 12px;
+    font-size: 1em;
+    color: #555;
+  }
+
+  .stars{
+    /* transform: scale(0.85); */
+    /* border: 1px solid white; */
+    display: inline-block;
+  }
+  

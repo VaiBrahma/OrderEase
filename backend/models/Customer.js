@@ -7,6 +7,7 @@ const customerSchema = new mongoose.Schema({
   password: String,
   reviews: [
     {
+      user: String,
       rating: Number,
       date: String,
       comment: String,
