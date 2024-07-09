@@ -5,7 +5,7 @@ const adminSchema = new mongoose.Schema({
   title: String,
   isOpen: {
     type: Boolean,
-    default: false
+    default: false,
   },
   admin: String,
   password: "String",
@@ -21,7 +21,7 @@ const adminSchema = new mongoose.Schema({
   },
   restaurant_img: {
     type: String,
-    default: '/images/restaurentCoverPhotos/restaurantbg.jpeg'
+    default: "/images/restaurentCoverPhotos/restaurantbg.jpeg",
   },
   menu: [
     {

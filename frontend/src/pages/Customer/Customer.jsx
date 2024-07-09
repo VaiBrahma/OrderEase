@@ -21,10 +21,14 @@ const Customer = () => {
   const customer = useSelector((state) => state.user);
 
   // Separate restaurants into open and closed
-  const openRestaurants = restaurants.filter((restaurant) => restaurant.isOpen === true);
-  const closedRestaurants = restaurants.filter((restaurant) => restaurant.isOpen === false);
+  const openRestaurants = restaurants.filter(
+    (restaurant) => restaurant.isOpen === true
+  );
+  const closedRestaurants = restaurants.filter(
+    (restaurant) => restaurant.isOpen === false
+  );
 
-  console.log(restaurants)
+  console.log(restaurants);
   return (
     <>
       <h1 className="text-white text-[2rem] m-1">
@@ -33,7 +37,9 @@ const Customer = () => {
       <div className={styles.container}>
         <h1 className={styles.welcomeMessage}>Kidhar aaye ho tum?</h1>
         <div className={styles.container2}>
-            <h2 className={`${styles.heading} text-green-500`}>Open Restaurants</h2>
+          <h2 className={`${styles.heading} text-green-500`}>
+            Open Restaurants
+          </h2>
           <div className={styles.gridContainer}>
             {openRestaurants.map((restaurant, index) => (
               <div
@@ -46,8 +52,10 @@ const Customer = () => {
               </div>
             ))}
           </div>
-            <div className={styles.break}></div>
-            <h2 className={`${styles.heading} text-red-500`}>Closed Restaurants</h2>
+          <div className={styles.break}></div>
+          <h2 className={`${styles.heading} text-red-500`}>
+            Closed Restaurants
+          </h2>
           <div className={styles.gridContainer}>
             {closedRestaurants.map((restaurant, index) => (
               <div

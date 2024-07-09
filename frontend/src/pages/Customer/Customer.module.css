@@ -31,7 +31,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 250px)
+  min-height: calc(100vh - 250px);
 }
 
 .gridContainer {
@@ -53,13 +53,13 @@
   text-align: center;
 }
 
-.heading{
+.heading {
   /* border: 1px solid red; */
   font-size: 1.5rem;
   margin-left: 1.5rem;
 }
 
-.break{
+.break {
   border: 1px solid #333;
   margin: 2.5rem 0;
 }

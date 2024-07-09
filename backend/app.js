@@ -27,15 +27,20 @@ app.use("/api/menu", getMenuItemsRoutes);
 app.use("/api/review", getReviewRoutes);
 app.use("/api/open", getOpenRoutes);
 
-import Order from './models/orders.js';
+import Order from "./models/orders.js";
 
-app.post('/api/orders', async (req, res) => {
+app.post("/api/orders", async (req, res) => {
   try {
     const { tableNo, items, restaurantId } = req.body;
-    const newOrder = new Order({ tableNo, items, status: 'pending', restaurantId });
+    const newOrder = new Order({
+      tableNo,
+      items,
+      status: "pending",
+      restaurantId,
+    });
     await newOrder.save();
 
-    io.emit('newOrder', newOrder); // Emit the new order to all connected clients
+    io.emit("newOrder", newOrder); // Emit the new order to all connected clients
 
     res.status(201).send(newOrder);
   } catch (error) {

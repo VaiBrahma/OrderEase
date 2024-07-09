@@ -1,48 +1,57 @@
 import { useSelector } from "react-redux";
 import WelcomeMessage from "../../../components/WelcomeMessage/WelcomeMessage";
 import styles from "./Dashboard.module.css";
-import axios from 'axios'
+import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 const Dashboard = () => {
-  const [isOpen, setIsOpen] = useState(close);
   const restaurant = useSelector((state) => {
     return state.user;
   });
+  const [isOpen, setIsOpen] = useState(false || restaurant.isOpen);
 
   const handleOpen = () => {
-    const openClose = async () =>{
-      await axios.post(`/api/open/${restaurant._id}`, {isOpen})
-      .then(()=>{
-        setIsOpen(prev=>!prev);
-      })
-      .catch(err=>{
-        console.log(err.message);
-        throw err;
-      })
-    }
+    const openClose = async () => {
+      await axios
+        .post(`/api/open/${restaurant._id}`, { isOpen })
+        .then(() => {
+          setIsOpen((prev) => !prev);
+        })
+        .catch((err) => {
+          console.log(err.message);
+          throw err;
+        });
+    };
 
     const myPromise = openClose();
 
-    toast.promise(
-      myPromise,
-      {
-        pending: `${isOpen ? "Closing" : "Opening"} ${restaurant.title}`,
-        success: `${restaurant.title} is now ${isOpen ? "Closed" : "Opened"} `,
-        error: `Error ${isOpen ? "Closing" : "Opening"} ${restaurant.title}`
-      }
-    )
-  }
+    toast.promise(myPromise, {
+      pending: `${isOpen ? "Closing" : "Opening"} ${restaurant.title}`,
+      success: `${restaurant.title} is now ${isOpen ? "Closed" : "Opened"} `,
+      error: `Error ${isOpen ? "Closing" : "Opening"} ${restaurant.title}`,
+    });
+  };
   return (
     <div className="p-8">
       <div className={styles.welcometext}>
-      <h1 className={styles.welcome}>
-        Hi <span className="text-[orange]">{restaurant.admin}</span>!
-      </h1>
-      <h2><span className="text-[#d328d3] font-[1.1em]">{restaurant.title}</span> is Currently <button onClick={handleOpen} className={`bg-gray-700 px-2 rounded-lg cursor-pointer ${isOpen ? 'text-green-500': 'text-red-500'}`}>{isOpen ?'Open': 'Closed'}</button></h2>
+        <h1 className={styles.welcome}>
+          Hi <span className="text-[orange]">{restaurant.admin}</span>!
+        </h1>
+        <h2>
+          <span className="text-[#d328d3] font-[1.1em]">
+            {restaurant.title}
+          </span>{" "}
+          is Currently{" "}
+          <button
+            onClick={handleOpen}
+            className={`bg-gray-700 px-2 rounded-lg cursor-pointer ${isOpen ? "text-green-500" : "text-red-500"}`}
+          >
+            {isOpen ? "Open" : "Closed"}
+          </button>
+        </h2>
       </div>
-      <WelcomeMessage isOpen={isOpen} handleOpen={handleOpen} isAdmin={true}/>
+      <WelcomeMessage isOpen={isOpen} handleOpen={handleOpen} isAdmin={true} />
       <p>
         Restarant Name: <span>{restaurant.title}</span>{" "}
       </p>
