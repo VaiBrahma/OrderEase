@@ -2,14 +2,28 @@ import { useSelector } from "react-redux";
 import WelcomeMessage from "../../../components/WelcomeMessage/WelcomeMessage";
 import styles from "./Dashboard.module.css";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const restaurant = useSelector((state) => {
     return state.user;
   });
-  const [isOpen, setIsOpen] = useState(false || restaurant.isOpen);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(()=>{
+    const getIsOpen = async () => {
+      await axios.get(`/api/data/restaurants/${restaurant._id}`)
+      .then((response)=> {
+        setIsOpen(response.data.isOpen);
+      })
+      .catch(err=>{
+        console.log(err.message);
+      })
+    }
+
+    getIsOpen();
+  }, [])
 
   const handleOpen = () => {
     const openClose = async () => {
