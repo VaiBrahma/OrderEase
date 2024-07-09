@@ -1,23 +1,23 @@
-.table{
-    height: 250px;
-    width: 250px;
-    position: relative;
-    border-radius: 25px;
-    background: url('/images/table.jpg') no-repeat center center/cover;
-    box-shadow: 0 0 10px #cecece8b;
+.table {
+  height: 250px;
+  width: 250px;
+  position: relative;
+  border-radius: 25px;
+  background: url("/images/table.jpg") no-repeat center center/cover;
+  box-shadow: 0 0 10px #cecece8b;
 }
 
-.no{
-    height: 250px;
-    width: 250px;
-    position: absolute;
-    top:0;
-    left:0;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 8rem;
-    font-weight: bold;
-    text-shadow: 0 0 20px black;
+.no {
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8rem;
+  font-weight: bold;
+  text-shadow: 0 0 20px black;
 }

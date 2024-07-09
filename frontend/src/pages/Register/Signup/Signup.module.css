@@ -1,51 +1,55 @@
-  .container {
-    text-align: center;
-    color: white;
-    /* border: 1px solid red; */
-    min-height: calc(100vh - 50px);
-    padding-top: 50px;
-    background: #36000000;
-    backdrop-filter: blur(10px);
-  }
-  
-  .cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .card {
-    border: 2px solid #ccc;
-    padding: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, color 0.3s;
-    border-radius: 10px;
-    width: 200px;
-    text-align: left;
-  }
-  
-  .card:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.05);
-    color: black;
-  }
-  
-  .selected {
-    background-color: #e0e0e0;
-    border-color: #eea633;
-    color: #000000e4;
-  }
-  
-  .selection {
-    margin-top: 20px;
-    color: #ff0000;
-  }
-  
-  .role{
-    color: #aee85d;
-  }
+.container {
+  text-align: center;
+  color: white;
+  /* border: 1px solid red; */
+  min-height: calc(100vh - 50px);
+  padding-top: 50px;
+  background: #36000000;
+  backdrop-filter: blur(10px);
+}
 
-  .selected .role, .card:hover .role{
-    color: orangered;
-  }
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  border: 2px solid #ccc;
+  padding: 20px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.3s,
+    color 0.3s;
+  border-radius: 10px;
+  width: 200px;
+  text-align: left;
+}
+
+.card:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+  color: black;
+}
+
+.selected {
+  background-color: #e0e0e0;
+  border-color: #eea633;
+  color: #000000e4;
+}
+
+.selection {
+  margin-top: 20px;
+  color: #ff0000;
+}
+
+.role {
+  color: #aee85d;
+}
+
+.selected .role,
+.card:hover .role {
+  color: orangered;
+}

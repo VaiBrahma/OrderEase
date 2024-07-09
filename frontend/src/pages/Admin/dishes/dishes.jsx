@@ -1,9 +1,9 @@
 // src/components/AdminPage.jsx
-import React, { useState } from 'react';
-import DishForm from './dishesForm';
-import DishList from './dishesList';
-import TableForm from './tableForm';
-import TableList from './tableList';
+import React, { useState } from "react";
+import DishForm from "./dishesForm";
+import DishList from "./dishesList";
+import TableForm from "./tableForm";
+import TableList from "./tableList";
 
 const DishPage = () => {
   const [dishes, setDishes] = useState([]);
@@ -18,7 +18,9 @@ const DishPage = () => {
   };
 
   const editDish = (updatedDish) => {
-    setDishes(dishes.map((dish) => (dish.id === updatedDish.id ? updatedDish : dish)));
+    setDishes(
+      dishes.map((dish) => (dish.id === updatedDish.id ? updatedDish : dish))
+    );
   };
 
   const addTable = (table) => {
@@ -30,19 +32,30 @@ const DishPage = () => {
   };
 
   const editTable = (updatedTable) => {
-    setTables(tables.map((table) => (table.id === updatedTable.id ? updatedTable : table)));
+    setTables(
+      tables.map((table) =>
+        table.id === updatedTable.id ? updatedTable : table
+      )
+    );
   };
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center justify-center">
-
-      <div className="text-xl font-bold mb-2 text-orange-400 ">Manage Dishes</div>
+      <div className="text-xl font-bold mb-2 text-orange-400 ">
+        Manage Dishes
+      </div>
       <DishForm addDish={addDish} />
       <DishList dishes={dishes} removeDish={removeDish} editDish={editDish} />
 
-      <div className="text-xl font-bold mb-2 text-orange-400">Manage Tables</div>
+      <div className="text-xl font-bold mb-2 text-orange-400">
+        Manage Tables
+      </div>
       <TableForm addTable={addTable} />
-      <TableList tables={tables} removeTable={removeTable} editTable={editTable} />
+      <TableList
+        tables={tables}
+        removeTable={removeTable}
+        editTable={editTable}
+      />
     </div>
   );
 };

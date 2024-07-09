@@ -1,13 +1,12 @@
 .searchBar {
-    margin: 10px;
-    text-align: center;
-  }
-  
-  .searchInput {
-    width: 80%;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
+  margin: 10px;
+  text-align: center;
+}
+
+.searchInput {
+  width: 80%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

@@ -1,41 +1,74 @@
-import React from 'react';
-import styles from './Sidebar.module.css';
+import React from "react";
+import styles from "./Sidebar.module.css";
 
-const Sidebar = ({ isSidebarOpen, setSidebarOpen, isExpanded, toggleExpand, menu, handlePlaceOrder, triggerWiggle }) => {
+const Sidebar = ({
+  isSidebarOpen,
+  setSidebarOpen,
+  isExpanded,
+  toggleExpand,
+  menu,
+  handlePlaceOrder,
+  triggerWiggle,
+}) => {
   const calculateTotal = () => {
-    return Object.values(menu).reduce((total, item) => total + item.detail.price * item.quantity, 0);
+    return Object.values(menu).reduce(
+      (total, item) => total + item.detail.price * item.quantity,
+      0
+    );
   };
 
   return (
     isSidebarOpen && (
-      <div className={`${styles.sidebar} ${isExpanded ? styles.expanded : ''}`}>
+      <div className={`${styles.sidebar} ${isExpanded ? styles.expanded : ""}`}>
         <div className={styles.btns}>
-          <button className='scale-[1.1]'>
-            <img src="/icons/close.png" alt="x" onClick={() => setSidebarOpen(false)} />
+          <button className="scale-[1.1]">
+            <img
+              src="/icons/close.png"
+              alt="x"
+              onClick={() => setSidebarOpen(false)}
+            />
           </button>
           <button className={styles.expandButton} onClick={toggleExpand}>
-            {isExpanded ? <img src='/icons/minimize.png' alt='-' className='scale-[1.2]' /> : <img src='/icons/expand.png' alt='+' />}
+            {isExpanded ? (
+              <img src="/icons/minimize.png" alt="-" className="scale-[1.2]" />
+            ) : (
+              <img src="/icons/expand.png" alt="+" />
+            )}
           </button>
         </div>
         <div className={styles.bill}>
           {Object.entries(menu).map(([itemName, itemData]) => (
             <div key={itemName} className={styles.billItem}>
-              <div style={{background: `url(${itemData.detail.image_src || '/images/defaultFoodIcon.jpeg'}) no-repeat center center/cover`}}className={styles.billItemImage}></div>
+              <div
+                style={{
+                  background: `url(${itemData.detail.image_src || "/images/defaultFoodIcon.jpeg"}) no-repeat center center/cover`,
+                }}
+                className={styles.billItemImage}
+              ></div>
               <div className={styles.billItemDetails}>
-                <span className='absolute left-0 w-[10rem]'>{itemName}</span>
-                <span className='absolute right-[4em]'>{itemData.quantity}</span>
-                <span className='absolute right-0'>₹{itemData.detail.price * itemData.quantity}</span>
+                <span className="absolute left-0 w-[10rem]">{itemName}</span>
+                <span className="absolute right-[4em]">
+                  {itemData.quantity}
+                </span>
+                <span className="absolute right-0">
+                  ₹{itemData.detail.price * itemData.quantity}
+                </span>
               </div>
             </div>
           ))}
           <div className={styles.totalRow}>
-            <span className='absolute right-5 w-[10rem]'>Total</span>
-            <span className='absolute right-10'>₹{calculateTotal()}</span>
+            <span className="absolute right-5 w-[10rem]">Total</span>
+            <span className="absolute right-10">₹{calculateTotal()}</span>
           </div>
         </div>
         {isExpanded && (
           <>
-            <button className={styles.placeOrderButton} onClick={handlePlaceOrder}>Place Order</button>
+            <button
+              className={styles.placeOrderButton}
+              onClick={handlePlaceOrder}
+            >
+              Place Order
+            </button>
             <button className={styles.chatButton}>Chat with Admin</button>
           </>
         )}

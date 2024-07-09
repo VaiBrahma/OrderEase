@@ -1,9 +1,14 @@
 // src/components/DishList.jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const DishList = ({ dishes, removeDish, editDish }) => {
   const [isEditing, setIsEditing] = useState(null);
-  const [currentDish, setCurrentDish] = useState({ id: '', name: '', price: '', imageUrl: '' });
+  const [currentDish, setCurrentDish] = useState({
+    id: "",
+    name: "",
+    price: "",
+    imageUrl: "",
+  });
 
   const startEditing = (dish) => {
     setIsEditing(dish.id);
@@ -50,22 +55,47 @@ const DishList = ({ dishes, removeDish, editDish }) => {
                   value={currentDish.imageUrl}
                   onChange={handleChange}
                   className="w-full px-2 py-1 border rounded mb-2"
-                //   required
+                  //   required
                 />
-                <button type="submit" className="bg-green-500 text-white px-2 py-1 rounded mr-2">Save</button>
-                <button type="button" onClick={() => setIsEditing(null)} className="bg-gray-500 text-white px-2 py-1 rounded">Cancel</button>
+                <button
+                  type="submit"
+                  className="bg-green-500 text-white px-2 py-1 rounded mr-2"
+                >
+                  Save
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsEditing(null)}
+                  className="bg-gray-500 text-white px-2 py-1 rounded"
+                >
+                  Cancel
+                </button>
               </form>
             ) : (
               <div>
-                <img src={dish.imageUrl} alt={dish.name} className="w-full h-32 object-cover rounded mb-2" />
+                <img
+                  src={dish.imageUrl}
+                  alt={dish.name}
+                  className="w-full h-32 object-cover rounded mb-2"
+                />
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="font-bold text-lg">{dish.name}</h3>
                     <p className="text-gray-700">{dish.price}/-</p>
                   </div>
                   <div>
-                    <button onClick={() => startEditing(dish)} className="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Edit</button>
-                    <button onClick={() => removeDish(dish.id)} className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+                    <button
+                      onClick={() => startEditing(dish)}
+                      className="bg-yellow-500 text-white px-2 py-1 rounded mr-2"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => removeDish(dish.id)}
+                      className="bg-red-500 text-white px-2 py-1 rounded"
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
               </div>

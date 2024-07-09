@@ -3,116 +3,138 @@ import getRestaurant from "../middleware/getRestaurant.js";
 
 const router = express.Router();
 
-router.get('/:adminId/clearMenu', getRestaurant, async(req, res)=>{
-  try{
+router.get("/:adminId/clearMenu", getRestaurant, async (req, res) => {
+  try {
     const restaurant = res.restaurant;
     restaurant.menu = [];
-    await restaurant.save()
-    .then(()=>{
+    await restaurant.save().then(() => {
       res.status(200).json({
         message: "Cleared Menu Successfully",
-        menu: restaurant.menu
-      })
-    })
-  }catch(err){
+        menu: restaurant.menu,
+      });
+    });
+  } catch (err) {
     res.status(500).send("cant clear menu");
   }
-})
+});
 
-router.get('/:adminId',getRestaurant, async(req, res) => {
-    const menu = res.restaurant.menu;
-    res.json(menu);
-})
+router.get("/:adminId", getRestaurant, async (req, res) => {
+  const menu = res.restaurant.menu;
+  res.json(menu);
+});
 
-router.post('/:adminId/addItem', getRestaurant, async (req, res) => {
+router.post("/:adminId/addItem", getRestaurant, async (req, res) => {
   try {
-      const restaurant = res.restaurant;
-      const newItems = req.body;
+    const restaurant = res.restaurant;
+    const newItems = req.body;
 
-      newItems.forEach(newItem => {
-          let category = restaurant.menu.find(cat => cat.title.toLowerCase() === newItem.category.toLowerCase());
+    newItems.forEach((newItem) => {
+      let category = restaurant.menu.find(
+        (cat) => cat.title.toLowerCase() === newItem.category.toLowerCase(),
+      );
 
-          if (!category) {
-              category = {
-                  title: newItem.category.charAt(0).toUpperCase() + newItem.category.slice(1).toLowerCase(),
-                  items: []
-              };
-              restaurant.menu.push(category);
-              category = restaurant.menu[restaurant.menu.length - 1]; 
-          }
+      if (!category) {
+        category = {
+          title:
+            newItem.category.charAt(0).toUpperCase() +
+            newItem.category.slice(1).toLowerCase(),
+          items: [],
+        };
+        restaurant.menu.push(category);
+        category = restaurant.menu[restaurant.menu.length - 1];
+      }
 
-          category.items.push({
-              name: newItem.name,
-              price: newItem.price,
-              vegetarian: newItem.vegetarian,
-              isAvailable: newItem.isAvailable,
-              id: newItem.id || new Date().getTime().toString(),
-              image_src: newItem.image_src || '',
-              cooking_time: newItem.cooking_time || '',
-              category: newItem.category
-          });
+      category.items.push({
+        name: newItem.name,
+        price: newItem.price,
+        vegetarian: newItem.vegetarian,
+        isAvailable: newItem.isAvailable,
+        id: newItem.id || new Date().getTime().toString(),
+        image_src: newItem.image_src || "",
+        cooking_time: newItem.cooking_time || "",
+        category: newItem.category,
       });
-      
-      await restaurant.save();
+    });
 
-      res.status(200).json({ message: 'Items added successfully', menu: restaurant.menu });
+    await restaurant.save();
+
+    res
+      .status(200)
+      .json({ message: "Items added successfully", menu: restaurant.menu });
   } catch (error) {
-      res.status(500).json({ error: 'An error occurred while adding items to the menu', details: error.message });
+    res.status(500).json({
+      error: "An error occurred while adding items to the menu",
+      details: error.message,
+    });
   }
 });
 
-router.put('/:adminId/updateItem', getRestaurant, async (req, res) => {
+router.put("/:adminId/updateItem", getRestaurant, async (req, res) => {
   try {
-      const restaurant = res.restaurant;
-      const { id, category, updatedItem } = req.body;
+    const restaurant = res.restaurant;
+    const { id, category, updatedItem } = req.body;
 
-      let categoryObj = restaurant.menu.find(cat => cat.title.toLowerCase() === category.toLowerCase());
+    let categoryObj = restaurant.menu.find(
+      (cat) => cat.title.toLowerCase() === category.toLowerCase(),
+    );
 
-      if (!categoryObj) {
-          return res.status(404).json({ error: 'Category not found' });
-      }
+    if (!categoryObj) {
+      return res.status(404).json({ error: "Category not found" });
+    }
 
-      let item = categoryObj.items.find(item => item.id === id);
+    let item = categoryObj.items.find((item) => item.id === id);
 
-      if (!item) {
-          return res.status(404).json({ error: 'Item not found' });
-      }
+    if (!item) {
+      return res.status(404).json({ error: "Item not found" });
+    }
 
-      // Update the item with new values
-      Object.assign(item, updatedItem);
+    // Update the item with new values
+    Object.assign(item, updatedItem);
 
-      await restaurant.save();
+    await restaurant.save();
 
-      res.status(200).json({ message: 'Item updated successfully', menu: restaurant.menu });
+    res
+      .status(200)
+      .json({ message: "Item updated successfully", menu: restaurant.menu });
   } catch (error) {
-      res.status(500).json({ error: 'An error occurred while updating the item', details: error.message });
+    res.status(500).json({
+      error: "An error occurred while updating the item",
+      details: error.message,
+    });
   }
 });
 
-router.delete('/:adminId/deleteItem', getRestaurant, async (req, res) => {
+router.delete("/:adminId/deleteItem", getRestaurant, async (req, res) => {
   try {
-      const restaurant = res.restaurant;
-      const { id, category } = req.body;
+    const restaurant = res.restaurant;
+    const { id, category } = req.body;
 
-      let categoryObj = restaurant.menu.find(cat => cat.title.toLowerCase() === category.toLowerCase());
+    let categoryObj = restaurant.menu.find(
+      (cat) => cat.title.toLowerCase() === category.toLowerCase(),
+    );
 
-      if (!categoryObj) {
-          return res.status(404).json({ error: 'Category not found' });
-      }
+    if (!categoryObj) {
+      return res.status(404).json({ error: "Category not found" });
+    }
 
-      let itemIndex = categoryObj.items.findIndex(item => item.id === id);
+    let itemIndex = categoryObj.items.findIndex((item) => item.id === id);
 
-      if (itemIndex === -1) {
-          return res.status(404).json({ error: 'Item not found' });
-      }
+    if (itemIndex === -1) {
+      return res.status(404).json({ error: "Item not found" });
+    }
 
-      categoryObj.items.splice(itemIndex, 1);
+    categoryObj.items.splice(itemIndex, 1);
 
-      await restaurant.save();
+    await restaurant.save();
 
-      res.status(200).json({ message: 'Item deleted successfully', menu: restaurant.menu });
+    res
+      .status(200)
+      .json({ message: "Item deleted successfully", menu: restaurant.menu });
   } catch (error) {
-      res.status(500).json({ error: 'An error occurred while deleting the item', details: error.message });
+    res.status(500).json({
+      error: "An error occurred while deleting the item",
+      details: error.message,
+    });
   }
 });
 

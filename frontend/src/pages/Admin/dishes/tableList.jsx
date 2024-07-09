@@ -1,9 +1,13 @@
 // src/components/TableList.jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const TableList = ({ tables, removeTable, editTable }) => {
   const [isEditing, setIsEditing] = useState(null);
-  const [currentTable, setCurrentTable] = useState({ id: '', number: '', occupied: false });
+  const [currentTable, setCurrentTable] = useState({
+    id: "",
+    number: "",
+    occupied: false,
+  });
 
   const startEditing = (table) => {
     setIsEditing(table.id);
@@ -50,18 +54,41 @@ const TableList = ({ tables, removeTable, editTable }) => {
                   />
                   <label className="text-gray-700">Occupied</label>
                 </div>
-                <button type="submit" className="bg-green-500 text-white px-2 py-1 rounded mr-2">Save</button>
-                <button type="button" onClick={() => setIsEditing(null)} className="bg-gray-500 text-white px-2 py-1 rounded">Cancel</button>
+                <button
+                  type="submit"
+                  className="bg-green-500 text-white px-2 py-1 rounded mr-2"
+                >
+                  Save
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsEditing(null)}
+                  className="bg-gray-500 text-white px-2 py-1 rounded"
+                >
+                  Cancel
+                </button>
               </form>
             ) : (
               <div className="flex justify-between items-center">
                 <div>
                   <h3 className="font-bold text-lg">Table {table.number}</h3>
-                  <p className="text-gray-700">{table.occupied ? 'Occupied' : 'Available'}</p>
+                  <p className="text-gray-700">
+                    {table.occupied ? "Occupied" : "Available"}
+                  </p>
                 </div>
                 <div>
-                  <button onClick={() => startEditing(table)} className="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Edit</button>
-                  <button onClick={() => removeTable(table.id)} className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+                  <button
+                    onClick={() => startEditing(table)}
+                    className="bg-yellow-500 text-white px-2 py-1 rounded mr-2"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => removeTable(table.id)}
+                    className="bg-red-500 text-white px-2 py-1 rounded"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             )}

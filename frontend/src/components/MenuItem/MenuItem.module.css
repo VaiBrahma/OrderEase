@@ -1,107 +1,111 @@
-.card{
-    width: 90%;
-    /* border: 1px solid red; */
-    border-radius: 2em;
-    background: transparent;
-    display: flex;
-    min-height: 150px;
-    margin: auto;
+.card {
+  width: 90%;
+  /* border: 1px solid red; */
+  border-radius: 2em;
+  background: transparent;
+  display: flex;
+  min-height: 150px;
+  margin: auto;
 }
 
-
-.left{
-    max-width: 125px;
-    width: 40%;
-    /* border: 1px solid green; */
-    border-radius: 2em 0 0 2em;
-    background: url('/images/defaultFood.png');
+.left {
+  max-width: 125px;
+  width: 40%;
+  /* border: 1px solid green; */
+  border-radius: 2em 0 0 2em;
+  background: url("/images/defaultFood.png");
 }
-.right{
-    flex: 1;
-    border: 1px solid #ffffff3c;
-    border-left: none;
-    color: #ffffffdb;
-    padding: 1em;
-    background: #00000064;
-    backdrop-filter: blur(10px);
-    border-radius: 0 2em 2em 0;
-    position: relative;
+.right {
+  flex: 1;
+  border: 1px solid #ffffff3c;
+  border-left: none;
+  color: #ffffffdb;
+  padding: 1em;
+  background: #00000064;
+  backdrop-filter: blur(10px);
+  border-radius: 0 2em 2em 0;
+  position: relative;
 }
-.card:hover{
-    background-color: #00000073;
-    /* border: 2px solid orange; */
-    /* color: #000000dc; */
-}
-
-.title{
-    font-size: 1.2em;
-    font-weight: bold;
+.card:hover {
+  background-color: #00000073;
+  /* border: 2px solid orange; */
+  /* color: #000000dc; */
 }
 
-.buttons{
-    position: absolute;
-    /* border: 1px solid red; */
-    right: 1em;
-    bottom: 0;
+.title {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-.buttons img{
-    width: 1.2em;
-    margin: 2px;
+.buttons {
+  position: absolute;
+  /* border: 1px solid red; */
+  right: 1em;
+  bottom: 0;
 }
 
-.buttons img:hover{
-    filter: drop-shadow(0 0 2px #d6d6d6c9)
+.buttons img {
+  width: 1.2em;
+  margin: 2px;
 }
 
-.remove, .add{
-    transform: scale(1.2);
-    margin: 5px;
-}
-.remove:active, .add:active{
-    transform: scale(1);
+.buttons img:hover {
+  filter: drop-shadow(0 0 2px #d6d6d6c9);
 }
 
-.inputt{
-    padding: 10px; 
-    border: 1px solid #ffffff3c;
-    background-color: transparent;
-    border-radius: 10px;
+.remove,
+.add {
+  transform: scale(1.2);
+  margin: 5px;
+}
+.remove:active,
+.add:active {
+  transform: scale(1);
 }
 
-  .category-starters {
-    background-color: #8d321d;
-  }
-  .category-soups {
-    background-color: #87651c;
-  }  
-  .category-main {
-    background-color: #3e8b1b;
-  }
-    .category-desserts {
-    background-color: #1b847f;
-  }
-    .category-drinks {
-    background-color: #1d4185;
-  }
-  .category-snacks {
-    background-color: #551d80;
-  }
+.inputt {
+  padding: 10px;
+  border: 1px solid #ffffff3c;
+  background-color: transparent;
+  border-radius: 10px;
+}
 
-  .edit, .delete{
-    filter: invert() opacity(0.4);
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 8px;
-    margin-bottom: 15px;
-    transform: scale(1.4)
-  }
+.category-starters {
+  background-color: #8d321d;
+}
+.category-soups {
+  background-color: #87651c;
+}
+.category-main {
+  background-color: #3e8b1b;
+}
+.category-desserts {
+  background-color: #1b847f;
+}
+.category-drinks {
+  background-color: #1d4185;
+}
+.category-snacks {
+  background-color: #551d80;
+}
 
-  .edit:hover, .delete:hover{
-    filter: opacity(1) invert(1);
-  }
+.edit,
+.delete {
+  filter: invert() opacity(0.4);
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 8px;
+  margin-bottom: 15px;
+  transform: scale(1.4);
+}
 
-  .edit:active, .delete:active{
-    transition: all 0.2s ease-in-out;
-    transform: scale(1.2);
-  }
+.edit:hover,
+.delete:hover {
+  filter: opacity(1) invert(1);
+}
+
+.edit:active,
+.delete:active {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.2);
+}

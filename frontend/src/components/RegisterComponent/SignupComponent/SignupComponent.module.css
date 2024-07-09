@@ -1,110 +1,108 @@
 .signupContainer {
-    background-color: #000000e6;
-    backdrop-filter: blur(10px);
-    margin: auto;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    width: 100%;
-    max-width: 28rem;
-    text-align: center;
-    position: relative;
-    animation: formAppear 0.5s ease-out;
-    transform-origin: top center;
-    filter: drop-shadow(0 0px 2px #ffffff90);
-    margin-top: 20px;
+  background-color: #000000e6;
+  backdrop-filter: blur(10px);
+  margin: auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+  text-align: center;
+  position: relative;
+  animation: formAppear 0.5s ease-out;
+  transform-origin: top center;
+  filter: drop-shadow(0 0px 2px #ffffff90);
+  margin-top: 20px;
 }
 
 .signupButton {
-    width: 100%;
-    background-color: #3b82f6;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
 }
 
 .signupButton:hover {
-    background-color: #2563eb;
+  background-color: #2563eb;
 }
 
 .inputContainer {
-    position: relative;
-    margin-bottom: 1.5rem;
-    text-align: left;
+  position: relative;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .inputField {
-    width: 100%;
-    padding: 1rem 0.5rem 0.5rem 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    color: white;
-    box-sizing: border-box;
-    background: none;
-    position: relative;
-    z-index: 1;
-    transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  color: white;
+  box-sizing: border-box;
+  background: none;
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.3s ease;
 }
 
 .inputField:focus {
-    outline: none;
-    border-color: #3b82f6;
+  outline: none;
+  border-color: #3b82f6;
 }
 
 .inputLabel {
-    position: absolute;
-    top: 1rem;
-    left: 0.5rem;
-    color: #aaa;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 0;
-    padding: 0 0.25rem;
-    background-color: black;
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  color: #aaa;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+  padding: 0 0.25rem;
+  background-color: black;
 }
 
 .inputField:focus + .inputLabel,
 .inputField:not(:placeholder-shown) + .inputLabel {
-    top: -0.75rem;
-    left: 0.5rem;
-    font-size: 0.75rem;
-    color: #3b82f6;
-    background: black;
-    z-index: 2;
-    padding: 0 0.25rem;
+  top: -0.75rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  background: black;
+  z-index: 2;
+  padding: 0 0.25rem;
 }
 
-.termsCard{
-    /* border: 1px solid red; */
-    width: 80%;
-    margin: auto;
-    padding: 1em;
-    background: #ffffff0e;
-    border-radius: 1em;
-    position: relative;
-    border: 1px solid #ffffff1b;
-    margin-top: 10px;
+.termsCard {
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: auto;
+  padding: 1em;
+  background: #ffffff0e;
+  border-radius: 1em;
+  position: relative;
+  border: 1px solid #ffffff1b;
+  margin-top: 10px;
 }
 
 @keyframes formAppear {
-    0% {
-        opacity: 0;
-        transform: scale(0.7) translateY(-30px);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(1.1) translateY(10px);
-    }
-    75% {
-        opacity: 0.9;
-        transform: scale(0.95) translateY(-5px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(-30px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) translateY(10px);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(0.95) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
-
-

@@ -2,7 +2,7 @@
 
 ## Problem
 
-In the digital era, restaurant owners and customers need a seamless and efficient digital system to enhance dining experiences. 
+In the digital era, restaurant owners and customers need a seamless and efficient digital system to enhance dining experiences.
 
 Traditional methods of managing menus, orders, and payments are often cumbersome and time-consuming, leading to inefficiencies and customer dissatisfaction.
 
@@ -30,10 +30,10 @@ Key highlights in what OrderEase project includes:
 
 This project is deployed with the frontend on Vercel and the backend on Render. Here are the links:
 
-- Frontend *(Links not available at the moment)*
-- Backend *(Links not available at the moment)*
+- Frontend _(Links not available at the moment)_
+- Backend _(Links not available at the moment)_
 
-*Note:* ***Please note that since the deployment uses free tiers on Vercel, Render, and MongoDB Atlas, there might be some intermittent issues***.
+_Note:_ **_Please note that since the deployment uses free tiers on Vercel, Render, and MongoDB Atlas, there might be some intermittent issues_**.
 
 # 🏁 Installation
 
@@ -44,27 +44,33 @@ To run the OrderEase project locally, follow these steps:
 1. Clone or download the zip file of project repository.
 2. Navigate to the project directory.
 3. Navigate to ./backend.
-4. Create `.env` file here and write these variables as follows: 
+4. Create `.env` file here and write these variables as follows:
+
 ```bash
     - PORT=5000 #must be same
     - MONGO_URI=mongodb://localhost:27017/ #you can write your own URI
     - JWT_SECRET= anything_here
     - CORS_ORIGIN=http://localhost:5173 #optional
 ```
+
 5. Run this command to install node_modules.
+
 ```bash
 npm install
 #or
 yarn install
 ```
+
 8. Run backend - `npm start`
-6. Navigate to ../frontend.
-7. Run this command to install node_modules.
+9. Navigate to ../frontend.
+10. Run this command to install node_modules.
+
 ```bash
 npm install
 #or
 yarn install
 ```
+
 8. Run fronted - `npm run dev`
 
 ## Summary

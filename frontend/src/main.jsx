@@ -1,14 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import authReducer from './state'
-import { configureStore } from '@reduxjs/toolkit'
-import { Provider } from 'react-redux'
-import { ToastContainer, Bounce } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import authReducer from "./state";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import { ToastContainer, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import{
+import {
   persistStore,
   persistReducer,
   FLUSH,
@@ -16,29 +16,30 @@ import{
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER
-} from 'redux-persist'
+  REGISTER,
+} from "redux-persist";
 
-import storage from 'redux-persist/lib/storage'
-import { PersistGate } from 'redux-persist/integration/react'
+import storage from "redux-persist/lib/storage";
+import { PersistGate } from "redux-persist/integration/react";
 
-const persistConfig ={key:"root", storage,version:1} ;
-const persistedReducer = persistReducer(persistConfig,authReducer)
+const persistConfig = { key: "root", storage, version: 1 };
+const persistedReducer = persistReducer(persistConfig, authReducer);
 
 const store = configureStore({
-  reducer:persistedReducer,
-  middleware:(getDefaultMiddleware)=>getDefaultMiddleware({
-    serializableCheck:{
-      ignoredActions:[FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
-    }
-  })
-})
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistStore(store)}>
-      <App />
+        <App />
         <ToastContainer
           position="bottom-right"
           autoClose={5000}
@@ -51,9 +52,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           pauseOnHover
           theme="light"
           transition={Bounce}
-          style={{ fontFamily: 'Arial, sans-serif' }} 
+          style={{ fontFamily: "Arial, sans-serif" }}
         />
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

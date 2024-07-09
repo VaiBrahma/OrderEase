@@ -49,8 +49,8 @@ function SignupComponent({ isAdmin }) {
           local_address,
           city,
           pincode,
-          state
-        }
+          state,
+        },
       };
       const signup = async () => {
         await axios

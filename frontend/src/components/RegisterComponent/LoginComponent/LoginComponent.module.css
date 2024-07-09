@@ -1,98 +1,98 @@
 .loginContainer {
-    background-color: #000000e6;
-    backdrop-filter: blur(10px);
-    margin: auto;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    width: 100%;
-    max-width: 28rem;
-    text-align: center;
-    position: relative;
-    animation: formAppear 0.5s ease-out;
-    transform-origin: top center;
-    filter: drop-shadow(0 0px 2px #ffffff90);
-    /* outline: 1px solid red; */
-    margin-top: 20px;
+  background-color: #000000e6;
+  backdrop-filter: blur(10px);
+  margin: auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+  text-align: center;
+  position: relative;
+  animation: formAppear 0.5s ease-out;
+  transform-origin: top center;
+  filter: drop-shadow(0 0px 2px #ffffff90);
+  /* outline: 1px solid red; */
+  margin-top: 20px;
 }
 
 .loginButton {
-    width: 100%;
-    background-color: #3b82f6;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem; /* Added margin top for spacing */
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem; /* Added margin top for spacing */
 }
 
 .loginButton:hover {
-    background-color: #2563eb;
+  background-color: #2563eb;
 }
 
 .inputContainer {
-    position: relative;
-    margin-bottom: 1.5rem;
-    text-align: left;
+  position: relative;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .inputField {
-    width: 100%;
-    padding: 1rem 0.5rem 0.5rem 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    color: white; /* Set input text color to white */
-    box-sizing: border-box;
-    background: none;
-    position: relative;
-    z-index: 1;
-    transition: border-color 0.3s ease; /* Added transition for border color */
+  width: 100%;
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  color: white; /* Set input text color to white */
+  box-sizing: border-box;
+  background: none;
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.3s ease; /* Added transition for border color */
 }
 
 .inputField:focus {
-    outline: none;
-    border-color: #3b82f6; /* Change border color on focus */
+  outline: none;
+  border-color: #3b82f6; /* Change border color on focus */
 }
 
 .inputLabel {
-    position: absolute;
-    top: 1rem;
-    left: 0.5rem;
-    color: #aaa;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 0;
-    padding: 0 0.25rem; /* Added padding to prevent cutting into input border */
-    background-color: black; /* Ensure label is on a black background */
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  color: #aaa;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+  padding: 0 0.25rem; /* Added padding to prevent cutting into input border */
+  background-color: black; /* Ensure label is on a black background */
 }
 
 .inputField:focus + .inputLabel,
 .inputField:not(:placeholder-shown) + .inputLabel {
-    top: -0.75rem;
-    left: 0.5rem;
-    font-size: 0.75rem;
-    color: #3b82f6;
-    background: black;
-    z-index: 2;
-    /* border: 1px solid red; */
-    padding: 0 0.25rem;
+  top: -0.75rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  background: black;
+  z-index: 2;
+  /* border: 1px solid red; */
+  padding: 0 0.25rem;
 }
 
 @keyframes formAppear {
-    0% {
-        opacity: 0;
-        transform: scale(0.7) translateY(-30px);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(1.1) translateY(10px);
-    }
-    75% {
-        opacity: 0.9;
-        transform: scale(0.95) translateY(-5px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(-30px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) translateY(10px);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(0.95) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }

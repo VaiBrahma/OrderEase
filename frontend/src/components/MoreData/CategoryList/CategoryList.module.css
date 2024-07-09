@@ -17,56 +17,55 @@
 }
 
 .category-starters:hover {
-    background-color: #FF5733;
-    box-shadow: 0px 0px 20px #FF5733;
-  }
+  background-color: #ff5733;
+  box-shadow: 0px 0px 20px #ff5733;
+}
 /* .category-starters{
     border-color:#FF5733;
   } */
-  
-  .category-soups:hover {
-    background-color: #FFBD33;
-    box-shadow: 0px 0px 20px #FFBD33;
-  }
-  /* .category-soups {
+
+.category-soups:hover {
+  background-color: #ffbd33;
+  box-shadow: 0px 0px 20px #ffbd33;
+}
+/* .category-soups {
     border-color: #FFBD33;
   } */
-  
-  .category-main:hover {
-    background-color: #75FF33;
-    box-shadow: 0px 0px 20px #75FF33;
-  }
-  /* .category-main {
+
+.category-main:hover {
+  background-color: #75ff33;
+  box-shadow: 0px 0px 20px #75ff33;
+}
+/* .category-main {
     border-color: #75FF33;
   } */
-  
-  .category-desserts:hover {
-    background-color: #33FFF6;
-    box-shadow: 0px 0px 20px #33FFF6;
-  }
-  /* .category-desserts {
+
+.category-desserts:hover {
+  background-color: #33fff6;
+  box-shadow: 0px 0px 20px #33fff6;
+}
+/* .category-desserts {
     border-color: #33FFF6;
   } */
-  
-  .category-drinks:hover {
-    background-color: #337BFF;
-    box-shadow: 0px 0px 20px #337BFF;
-  }
-  /* .category-drinks {
+
+.category-drinks:hover {
+  background-color: #337bff;
+  box-shadow: 0px 0px 20px #337bff;
+}
+/* .category-drinks {
     border-color: #337BFF;
   } */
-  
-  .category-snacks:hover {
-    /* background-color: #A833FF; */
-    box-shadow: 0px 0px 20px #A833FF;
-  }
-  /* .category-snacks {
+
+.category-snacks:hover {
+  /* background-color: #A833FF; */
+  box-shadow: 0px 0px 20px #a833ff;
+}
+/* .category-snacks {
     border-color: #A833FF;
   } */
-  
-  .categoryList {
-    margin: 0;
-    padding: 35px;
-    backdrop-filter: blur(10px);
-  }
-  
+
+.categoryList {
+  margin: 0;
+  padding: 35px;
+  backdrop-filter: blur(10px);
+}

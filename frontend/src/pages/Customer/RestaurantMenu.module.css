@@ -11,13 +11,13 @@
   font-size: 1.5em;
 }
 
-.address{
+.address {
   border-bottom: 1px solid #ffffff2e;
   height: 80px;
   margin-bottom: 20px;
   transform: translateY(-10px);
   color: #ffffffcd;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 0.8em;
 }
 .row {
@@ -93,7 +93,8 @@
 }
 
 @keyframes wiggle {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(-15deg) scale(1);
   }
   25% {
@@ -119,7 +120,9 @@
   height: 40%;
   background-color: white;
   border-radius: 1em 1em 0 0;
-  transition: height 0.3s ease, border-radius 0.3s ease;
+  transition:
+    height 0.3s ease,
+    border-radius 0.3s ease;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
@@ -168,11 +171,12 @@
   width: 100%;
 }
 
-.billItemDetails span{
+.billItemDetails span {
   color: black;
 }
 
-.placeOrderButton, .chatButton {
+.placeOrderButton,
+.chatButton {
   margin: 1em 0;
   padding: 0.5em;
   background-color: orange;
@@ -182,10 +186,11 @@
   cursor: pointer;
 }
 
-.placeOrderButton:hover, .chatButton:hover {
+.placeOrderButton:hover,
+.chatButton:hover {
   background-color: darkorange;
 }
 
-.btns img{
+.btns img {
   width: 25px;
 }

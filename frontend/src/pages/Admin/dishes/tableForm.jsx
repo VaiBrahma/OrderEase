@@ -1,8 +1,8 @@
 // src/components/TableForm.jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const TableForm = ({ addTable }) => {
-  const [table, setTable] = useState({ id: '', number: '', occupied: false });
+  const [table, setTable] = useState({ id: "", number: "", occupied: false });
 
   const handleChange = (e) => {
     setTable({ ...table, [e.target.name]: e.target.value });
@@ -15,7 +15,7 @@ const TableForm = ({ addTable }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addTable({ ...table, id: Date.now().toString() });
-    setTable({ id: '', number: '', occupied: false });
+    setTable({ id: "", number: "", occupied: false });
   };
 
   return (
@@ -41,7 +41,12 @@ const TableForm = ({ addTable }) => {
         />
         <label className="text-white">Occupied</label>
       </div>
-      <button type="submit" className="bg-green-500 text-white px-3 py-2 rounded">Add Table</button>
+      <button
+        type="submit"
+        className="bg-green-500 text-white px-3 py-2 rounded"
+      >
+        Add Table
+      </button>
     </form>
   );
 };

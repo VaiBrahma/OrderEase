@@ -1,9 +1,14 @@
 // src/components/DishForm.jsx
-import React, { useState } from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
-import Dropzone from '../../../components/Dropzone';
+import React, { useState } from "react";
+import { Box, Button, TextField, Typography } from "@mui/material";
+import Dropzone from "../../../components/Dropzone";
 const DishForm = ({ addDish }) => {
-  const [dish, setDish] = useState({ id: '', name: '', price: '', imageUrl: '' });
+  const [dish, setDish] = useState({
+    id: "",
+    name: "",
+    price: "",
+    imageUrl: "",
+  });
   const [files, setFiles] = useState([]);
 
   const handleChange = (e) => {
@@ -17,7 +22,7 @@ const DishForm = ({ addDish }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addDish({ ...dish, id: Date.now().toString() });
-    setDish({ id: '', name: '', price: '', imageUrl: '' });
+    setDish({ id: "", name: "", price: "", imageUrl: "" });
   };
 
   return (
@@ -46,16 +51,20 @@ const DishForm = ({ addDish }) => {
       </div>
       <div className="mb-2">
         <label className="block text-white  ">Image URL</label>
-        <Dropzone onDrop={handleDrop}  />
+        <Dropzone onDrop={handleDrop} />
         {files.length > 0 && (
           <Box sx={{ mt: 2 }}>
             <Typography variant="body1">Selected file:</Typography>
             <Typography variant="body2">{files[0].name}</Typography>
           </Box>
         )}
-        
       </div>
-      <button type="submit" className="bg-green-500 text-white px-3 py-2 rounded">Add Dish</button>
+      <button
+        type="submit"
+        className="bg-green-500 text-white px-3 py-2 rounded"
+      >
+        Add Dish
+      </button>
     </form>
   );
 };

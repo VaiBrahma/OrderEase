@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({
   isAdmin: Boolean,
@@ -43,6 +43,6 @@ const adminSchema = new mongoose.Schema({
   ],
 });
 
-const Admin = mongoose.model('admin', adminSchema);
+const Admin = mongoose.model("admin", adminSchema);
 
 export default Admin;

@@ -17,7 +17,12 @@ router.post("/signup", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newCustomer = new Customer({ name, email, password: hashedPassword, isAdmin: false, });
+    const newCustomer = new Customer({
+      name,
+      email,
+      password: hashedPassword,
+      isAdmin: false,
+    });
     await newCustomer.save();
 
     res.status(201).json({ message: "Customer registered successfully" });
@@ -29,7 +34,15 @@ router.post("/signup", async (req, res) => {
 
 // Admin signup
 router.post("/admin/signup", async (req, res) => {
-  const { title, admin, admin_handle, admin_mobile_no, password, no_of_tables, address } = req.body;
+  const {
+    title,
+    admin,
+    admin_handle,
+    admin_mobile_no,
+    password,
+    no_of_tables,
+    address,
+  } = req.body;
 
   try {
     const adminExists = await Admin.findOne({ admin_handle });
@@ -46,7 +59,7 @@ router.post("/admin/signup", async (req, res) => {
       password: hashedPassword,
       isAdmin: true,
       no_of_tables,
-      address
+      address,
     });
     await newAdmin.save();
 
@@ -58,12 +71,14 @@ router.post("/admin/signup", async (req, res) => {
 });
 
 // User login
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     // Try to find the user as a customer first
-    const user = await Customer.findOne({ email }) || await Admin.findOne({ admin_handle: email });
+    const user =
+      (await Customer.findOne({ email })) ||
+      (await Admin.findOne({ admin_handle: email }));
     if (!user) {
       return res.status(400).json({ message: "User not found" });
     }
@@ -75,16 +90,25 @@ router.post('/login', async (req, res) => {
     }
 
     // Determine user type
-    const tokenPayload = user instanceof Customer ? { customerId: user._id } : { adminId: user._id };
-    const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const tokenPayload =
+      user instanceof Customer
+        ? { customerId: user._id }
+        : { adminId: user._id };
+    const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     // Respond with token and user ID
-    res.json({ token,user,userId: user._id, isAdmin: user instanceof Customer ? false : true });
+    res.json({
+      token,
+      user,
+      userId: user._id,
+      isAdmin: user instanceof Customer ? false : true,
+    });
   } catch (error) {
-    console.log('Error occurred during login:', error.message);
-    res.status(500).json({ message: 'Server error' });
+    console.log("Error occurred during login:", error.message);
+    res.status(500).json({ message: "Server error" });
   }
 });
-
 
 export default router;

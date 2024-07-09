@@ -1,183 +1,188 @@
 .app {
-    padding: 20px;
-    border-top: 1px solid #ffffff3a;
-    height: calc(100vh - 50px);
-    background: #00000048;
-    backdrop-filter: blur(10px);
+  padding: 20px;
+  border-top: 1px solid #ffffff3a;
+  height: calc(100vh - 50px);
+  background: #00000048;
+  backdrop-filter: blur(10px);
+}
+
+.title {
+  margin-bottom: 20px;
+  color: orange;
+  font-size: 1.5em;
+}
+
+.row {
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+  background-color: #0000009d;
+  border: 1px solid #ffffff37;
+  border-radius: 1em;
+  color: #ffffffe0;
+}
+.row:hover {
+  background-color: #aee85d;
+  color: #000000d7;
+}
+.row:active {
+  transition: 0.2s;
+  border: 1px solid orange;
+}
+
+.toggleButton {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cards {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  position: fixed;
+  bottom: 1em;
+  left: calc(50% - 2em);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order {
+  position: relative;
+  border-radius: 50%;
+  background: white;
+  padding: 5px;
+  width: 4em;
+  height: 4em;
+  margin: auto;
+  filter: drop-shadow(0 2px 8px black);
+}
+
+.order:active {
+  transform: scale(0.95);
+}
+
+.btn img {
+  width: 4em;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-15deg) scale(1);
   }
-  
-  .title {
-    margin-bottom: 20px;
-    color: orange;
-    font-size: 1.5em;
+  25% {
+    transform: rotate(15deg) scale(1.1);
   }
-  
-  .row {
-    margin-bottom: 10px;
-    transition: all 0.3s ease-in-out;
-    background-color: #0000009d;
-    border: 1px solid #ffffff37;
-    border-radius: 1em;
-    color: #ffffffe0;
+  50% {
+    transform: rotate(-10deg) scale(1.2);
   }
-  .row:hover {
-    background-color: #aee85d;
-    color: #000000d7;
+  75% {
+    transform: rotate(10deg) scale(1.1);
   }
-  .row:active {
-    transition: 0.2s;
-    border: 1px solid orange;
-  }
-  
-  .toggleButton {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .cards {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card {
-    margin-top: 0;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .btn {
-    position: fixed;
-    bottom: 1em;
-    left: calc(50% - 2em);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .order {
-    position: relative;
-    border-radius: 50%;
-    background: white;
-    padding: 5px;
-    width: 4em;
-    height: 4em;
-    margin: auto;
-    filter: drop-shadow(0 2px 8px black);
-  }
-  
-  .order:active {
-    transform: scale(0.95);
-  }
-  
-  .btn img {
-    width: 4em;
-  }
-  
-  @keyframes wiggle {
-    0%, 100% {
-      transform: rotate(-15deg) scale(1);
-    }
-    25% {
-      transform: rotate(15deg) scale(1.1);
-    }
-    50% {
-      transform: rotate(-10deg) scale(1.2);
-    }
-    75% {
-      transform: rotate(10deg) scale(1.1);
-    }
-  }
-  
-  .wiggle {
-    animation: wiggle 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  }
-  
-  .sidebar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    background-color: white;
-    border-radius: 1em 1em 0 0;
-    transition: height 0.3s ease, border-radius 0.3s ease;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    padding-top: 2em;
-  }
-  
-  .expanded {
-    height: 100%;
-    border-radius: 0;
-  }
-  
-  .btns {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    display: flex;
-    gap: 10px;
-  }
-  
-  .bill {
-    overflow-y: auto;
-    flex: 1;
-    padding: 1em;
-  }
-  
-  .billItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1em;
-    /* border: 1px solid red; */
-  }
-  
-  .billItemImage {
-    width: 50px;
-    height: 50px;
-    margin-right: 1em;
-  }
-  
-  .billItemDetails {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* border: 1px solid red; */
-    position: relative;
-    width: 100%;
-  }
-  
-  .billItemDetails span{
-    color: black;
-  }
-  
-  .placeOrderButton, .chatButton {
-    margin: 1em 0;
-    padding: 0.5em;
-    background-color: orange;
-    border: none;
-    border-radius: 0.5em;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .placeOrderButton:hover, .chatButton:hover {
-    background-color: darkorange;
-  }
-  
-  .btns img{
-    width: 25px;
-  }
+}
+
+.wiggle {
+  animation: wiggle 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.sidebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background-color: white;
+  border-radius: 1em 1em 0 0;
+  transition:
+    height 0.3s ease,
+    border-radius 0.3s ease;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  padding-top: 2em;
+}
+
+.expanded {
+  height: 100%;
+  border-radius: 0;
+}
+
+.btns {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: flex;
+  gap: 10px;
+}
+
+.bill {
+  overflow-y: auto;
+  flex: 1;
+  padding: 1em;
+}
+
+.billItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  /* border: 1px solid red; */
+}
+
+.billItemImage {
+  width: 50px;
+  height: 50px;
+  margin-right: 1em;
+}
+
+.billItemDetails {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid red; */
+  position: relative;
+  width: 100%;
+}
+
+.billItemDetails span {
+  color: black;
+}
+
+.placeOrderButton,
+.chatButton {
+  margin: 1em 0;
+  padding: 0.5em;
+  background-color: orange;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+  cursor: pointer;
+}
+
+.placeOrderButton:hover,
+.chatButton:hover {
+  background-color: darkorange;
+}
+
+.btns img {
+  width: 25px;
+}

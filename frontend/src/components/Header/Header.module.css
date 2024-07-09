@@ -1,25 +1,25 @@
-.nav{
-    /* background: red; */
-    height: 50px;
-    display: flex;
-    width: 100vw;
-    justify-content:space-between;
-    align-items: center;
-    padding: 1em;
+.nav {
+  /* background: red; */
+  height: 50px;
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
 }
 
-.title{
-    color: #ffffff;
-    font-family: "Playwrite ES", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    z-index: 1;
+.title {
+  color: #ffffff;
+  font-family: "Playwrite ES", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  z-index: 1;
 }
 
-.icon{
-    filter: invert();
-    width: 2em;
-    height: 2em;
-    z-index: 1;
+.icon {
+  filter: invert();
+  width: 2em;
+  height: 2em;
+  z-index: 1;
 }

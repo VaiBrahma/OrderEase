@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const customerSchema = new mongoose.Schema({
   isAdmin: Boolean,
@@ -16,6 +16,6 @@ const customerSchema = new mongoose.Schema({
   ],
 });
 
-const Customer = mongoose.model('customer', customerSchema);
+const Customer = mongoose.model("customer", customerSchema);
 
 export default Customer;
