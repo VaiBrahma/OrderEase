@@ -1,4 +1,12 @@
 .welcome {
   font-size: 2.5rem;
-  margin: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.welcometext{
+  background-color: #00000051;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  display: inline-block;
+  border-radius: 2.5rem;
 }

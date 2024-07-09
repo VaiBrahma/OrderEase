@@ -9,18 +9,13 @@ const orderSchema = new Schema({
   },
   items: [
     {
-      name: {
-        type: String,
-        required: true,
-      },
-      quantity: {
-        type: Number,
-        required: true,
-      },
-      price: {
-        type: Number,
-        required: true,
-      },
+      name: String,
+      price: Number,
+      vegetarian: Boolean,
+      isAvailable: Boolean,
+      image_src: String,
+      id: String,
+      category: String,
     },
   ],
 

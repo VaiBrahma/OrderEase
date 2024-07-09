@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 const adminSchema = new mongoose.Schema({
   isAdmin: Boolean,
   title: String,
+  isOpen: {
+    type: Boolean,
+    default: false
+  },
   admin: String,
   password: "String",
   admin_handle: { type: String, unique: true },
@@ -15,7 +19,10 @@ const adminSchema = new mongoose.Schema({
     pincode: Number,
     country: String,
   },
-  restaurant_img: String,
+  restaurant_img: {
+    type: String,
+    default: '/images/restaurentCoverPhotos/restaurantbg.jpeg'
+  },
   menu: [
     {
       title: String,

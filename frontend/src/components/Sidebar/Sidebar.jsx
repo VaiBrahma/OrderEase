@@ -57,8 +57,8 @@ const Sidebar = ({
             </div>
           ))}
           <div className={styles.totalRow}>
-            <span className="absolute right-5 w-[10rem]">Total</span>
-            <span className="absolute right-10">₹{calculateTotal()}</span>
+            <span className="">Total</span>
+            <span className="">₹{calculateTotal()}</span>
           </div>
         </div>
         {isExpanded && (

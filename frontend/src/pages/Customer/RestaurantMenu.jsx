@@ -21,21 +21,16 @@ const RestaurantMenu = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [paymentStep, setPaymentStep] = useState(null);
   const [table, setTable] = useState(null);
-  const [isRowOpen, setIsRowOpen] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const [isRowOpen, setIsRowOpen] = useState([]);
   const userid = useSelector((state) => state.user._id);
 
   useEffect(() => {
     fetch(`/api/data/restaurants/${restaurantId}`)
       .then((response) => response.json())
-      .then((data) => setRestaurant(data))
+      .then((data) => {
+        setRestaurant(data);
+        setIsRowOpen(new Array(data.menu.length).fill(false)); // Initialize isRowOpen based on categories
+      })
       .catch((error) => console.error("Error fetching data:", error));
   }, [restaurantId]);
 
@@ -198,17 +193,11 @@ const RestaurantMenu = () => {
             <h2 className="text-xl font-bold mb-4">Choose Payment Method</h2>
             <div className="space-y-4">
               <input
+                required
                 placeholder="Enter Table Number"
                 className="w-full bg-gray-300 text-black p-2 rounded-lg"
                 onChange={(e) => setTable(e.target.value)}
               />
-              <button
-                type="button"
-                className="w-full bg-green-500 text-white p-2 rounded-lg"
-                onClick={() => selectPaymentStep("pay-now")}
-              >
-                Pay Now
-              </button>
               <button
                 type="button"
                 className="w-full bg-blue-500 text-white p-2 rounded-lg"
