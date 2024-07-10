@@ -12,9 +12,9 @@ const PrivateRoutesCustomer = () => {
   // console.log({auth, token});
   return (
     <>
-      {((token !== null) & (auth.isAdmin === false)) && <Outlet />}
-      {((token !== null) & (auth.isAdmin === true)) && <Navigate to="/admin" />}
-      {((token === null) || (auth.isAdmin === null)) && <Navigate to="/" />}
+      {(token !== null) & (auth.isAdmin === false) && <Outlet />}
+      {(token !== null) & (auth.isAdmin === true) && <Navigate to="/admin" />}
+      {(token === null || auth.isAdmin === null) && <Navigate to="/" />}
     </>
   );
 };

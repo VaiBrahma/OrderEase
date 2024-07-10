@@ -104,25 +104,22 @@ const RestaurantMenu = () => {
         restaurantId,
       };
       const placeOrder = async () => {
-        await axios.post("/api/orders", orderData, {
-          headers: { "Content-Type": "application/json" },
-        })
-        .then(()=>{
-          setModalOpen(false);
-        })
-      }
-
+        await axios
+          .post("/api/orders", orderData, {
+            headers: { "Content-Type": "application/json" },
+          })
+          .then(() => {
+            setModalOpen(false);
+          });
+      };
 
       const myPromise = placeOrder();
 
-      toast.promise(
-        myPromise,
-        {
-          pending: `placing order`,
-          success: `order placed successfully`,
-          error: `error placing order`
-        }
-      )
+      toast.promise(myPromise, {
+        pending: `placing order`,
+        success: `order placed successfully`,
+        error: `error placing order`,
+      });
     } catch (error) {
       console.error("Error creating order:", error);
     }

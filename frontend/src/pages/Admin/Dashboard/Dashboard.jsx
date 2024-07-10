@@ -4,7 +4,7 @@ import styles from "./Dashboard.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import {io} from "socket.io-client";
+import { io } from "socket.io-client";
 
 const Dashboard = () => {
   const restaurant = useSelector((state) => {
@@ -26,9 +26,9 @@ const Dashboard = () => {
 
     getIsOpen();
 
-    const socket = io('/', {
-      path: '/socket.io',
-    }); 
+    const socket = io("/", {
+      path: "/socket.io",
+    });
 
     socket.on("newOrder", (order) => {
       if (order.restaurantId === restaurant._id) {

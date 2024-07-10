@@ -16,20 +16,20 @@ const Header = () => {
   };
   return (
     <>
-    <div className="flex justify-between items-center p-2 z-0">
-      <img src="/icons/icon3.png" alt="food" className={`${styles.icon}`} />
-      <div className={`${styles.title}`}>OrderEase</div>
-      <div className="flex justify-self items-center space-x-4">
-        <img
-          className={`${styles.icon}`}
-          style={{ filter: "invert(0)" }}
-          src="/icons/avatar.png"
-          alt="avatar"
-          onClick={()=>setIsOpen(prev=> !prev)}
-        />
+      <div className="flex justify-between items-center p-2 z-0">
+        <img src="/icons/icon3.png" alt="food" className={`${styles.icon}`} />
+        <div className={`${styles.title}`}>OrderEase</div>
+        <div className="flex justify-self items-center space-x-4">
+          <img
+            className={`${styles.icon}`}
+            style={{ filter: "invert(0)" }}
+            src="/icons/avatar.png"
+            alt="avatar"
+            onClick={() => setIsOpen((prev) => !prev)}
+          />
+        </div>
       </div>
-    </div>
-      <Popup isOpen={isOpen} handleLogout={handleLogout}/>
+      <Popup isOpen={isOpen} handleLogout={handleLogout} />
     </>
   );
 };
