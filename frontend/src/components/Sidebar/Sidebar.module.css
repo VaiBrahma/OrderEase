@@ -123,10 +123,9 @@
 }
 
 .expanded {
-  /* height: calc(100vh - 50px); */
   height: 100%;
+  /* height: calc(100vh - 50px); */
   border-radius: 0;
-  z-index: 9999;
 }
 
 .btns {

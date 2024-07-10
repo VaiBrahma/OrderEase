@@ -2,13 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./RestaurantMenu.module.css"; // Ensure the CSS file name matches this import
 import { useParams } from "react-router-dom";
 import MenuItem from "../../components/MenuItem/MenuItem";
-import Modal from "../../components/Modal/Modal";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import MenuCategory from "../../components/MenuCategory/MenuCategory";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Modal from "../../components/Modal/Modal.jsx";
 
 const RestaurantMenu = () => {
   const [menu, setMenu] = useState({});
