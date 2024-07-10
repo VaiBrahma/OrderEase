@@ -4,6 +4,7 @@ import axios from "axios";
 import styles from "./LoginComponent.module.css";
 import state, { setLogin } from "../../../state";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function LoginComponent() {
   const [email, setEmail] = useState("");
@@ -44,7 +45,16 @@ function LoginComponent() {
           console.log(error.message);
         });
     };
-    login(user);
+    const myPromise = login(user); 
+
+    toast.promise(
+      myPromise,
+      {
+        pending: `Logging in...`,
+        success: `Successfully Logged in!`,
+        error: `Error Logging in`
+      }
+    )
   };
 
   return (
