@@ -4,6 +4,7 @@ import styles from "./Dashboard.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import {io} from "socket.io-client";
 
 const Dashboard = () => {
   const restaurant = useSelector((state) => {
@@ -11,19 +12,34 @@ const Dashboard = () => {
   });
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     const getIsOpen = async () => {
-      await axios.get(`/api/data/restaurants/${restaurant._id}`)
-      .then((response)=> {
-        setIsOpen(response.data.isOpen);
-      })
-      .catch(err=>{
-        console.log(err.message);
-      })
-    }
+      await axios
+        .get(`/api/data/restaurants/${restaurant._id}`)
+        .then((response) => {
+          setIsOpen(response.data.isOpen);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    };
 
     getIsOpen();
-  }, [])
+
+    const socket = io('/', {
+      path: '/socket.io',
+    }); 
+
+    socket.on("newOrder", (order) => {
+      if (order.restaurantId === restaurant._id) {
+        toast.info(`New order received from Table ${order.tableNo}`);
+      }
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [restaurant._id]);
 
   const handleOpen = () => {
     const openClose = async () => {

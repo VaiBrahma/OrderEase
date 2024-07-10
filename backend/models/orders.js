@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "User",
     required: true,
   },
@@ -34,10 +34,16 @@ const orderSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  deliveryAddress: {
-    type: String,
-    required: true,
+  restaurantId: {
+    type: String
   },
+  tableNo: {
+    type: Number,
+    require: true
+  },
+  status: {
+    type: String,
+  }
 });
 
 const Order = mongoose.model("Order", orderSchema);

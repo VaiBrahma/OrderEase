@@ -1,4 +1,4 @@
-import express, { urlencoded } from "express";
+import express from "express";
 import connectDB from "./db.js";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
@@ -9,6 +9,7 @@ import getRestaurantsRoutes from "./routes/getRestaurants.js";
 import getMenuItemsRoutes from "./routes/getMenuItems.js";
 import getReviewRoutes from "./routes/reviews.js";
 import getOpenRoutes from "./routes/openClose.js";
+import Order from "./models/orders.js";
 
 dotenv.config();
 connectDB();
@@ -27,20 +28,22 @@ app.use("/api/menu", getMenuItemsRoutes);
 app.use("/api/review", getReviewRoutes);
 app.use("/api/open", getOpenRoutes);
 
-import Order from "./models/orders.js";
-
 app.post("/api/orders", async (req, res) => {
   try {
-    const { tableNo, items, restaurantId } = req.body;
+    const {userId, tableNo, items, restaurantId, paymentMethod, totalAmount } = req.body;
     const newOrder = new Order({
+      userId,
       tableNo,
       items,
       status: "pending",
       restaurantId,
+      paymentMethod,
+      totalAmount
     });
     await newOrder.save();
 
-    io.emit("newOrder", newOrder); // Emit the new order to all connected clients
+    const io = req.app.get("socketio");
+    io.emit("newOrder", {userId, tableNo, items, restaurantId, paymentMethod, totalAmount });
 
     res.status(201).send(newOrder);
   } catch (error) {

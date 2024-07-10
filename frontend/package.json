@@ -27,6 +27,8 @@
     "react-router-dom": "^6.23.1",
     "react-toastify": "^10.0.5",
     "redux-persist": "^6.0.0",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
     "yup": "^1.4.0"
   },
   "devDependencies": {

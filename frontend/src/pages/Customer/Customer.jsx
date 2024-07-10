@@ -28,7 +28,6 @@ const Customer = () => {
     (restaurant) => restaurant.isOpen === false
   );
 
-  console.log(restaurants);
   return (
     <>
       <h1 className="text-white text-[2rem] m-1">

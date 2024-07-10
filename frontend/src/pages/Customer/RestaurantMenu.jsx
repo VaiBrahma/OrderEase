@@ -8,6 +8,7 @@ import MenuCategory from "../../components/MenuCategory/MenuCategory";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const RestaurantMenu = () => {
   const [menu, setMenu] = useState({});
@@ -99,15 +100,29 @@ const RestaurantMenu = () => {
         totalAmount: calculateTotal(),
         cookingTime: calculateTime(),
         orderTime: Date.now(),
-        deliveryAddress: "Table" + table,
+        tableNo: table,
+        restaurantId,
       };
+      const placeOrder = async () => {
+        await axios.post("/api/orders", orderData, {
+          headers: { "Content-Type": "application/json" },
+        })
+        .then(()=>{
+          setModalOpen(false);
+        })
+      }
 
-      const response = await axios.post("/api/orders/create", orderData, {
-        headers: { "Content-Type": "application/json" },
-      });
 
-      console.log("Order created:", response.data);
-      setModalOpen(false);
+      const myPromise = placeOrder();
+
+      toast.promise(
+        myPromise,
+        {
+          pending: `placing order`,
+          success: `order placed successfully`,
+          error: `error placing order`
+        }
+      )
     } catch (error) {
       console.error("Error creating order:", error);
     }

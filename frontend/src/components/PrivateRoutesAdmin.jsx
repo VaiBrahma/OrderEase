@@ -9,14 +9,12 @@ const PrivateRoutesAdmin = () => {
     useSelector((state) => {
       return state.token;
     }) || null;
-  // console.log(auth, token);
+  // console.log({auth, token});
   return (
     <>
-      {(token !== null) & (auth.isAdmin === true) && <Outlet />}
-      {(token !== null) & (auth.isAdmin === false) && (
-        <Navigate to="/customer" />
-      )}
-      {(token === null) & (auth.isAdmin === null) && <Navigate to="/" />}
+      {((token !== null) & (auth.isAdmin === true)) && <Outlet />}
+      {((token !== null) & (auth.isAdmin === false)) && <Navigate to="/customer" />}
+      {((token === null) || (auth.isAdmin === null)) && <Navigate to="/" />}
     </>
   );
 };
