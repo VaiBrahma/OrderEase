@@ -45,16 +45,13 @@ function LoginComponent() {
           console.log(error.message);
         });
     };
-    const myPromise = login(user); 
+    const myPromise = login(user);
 
-    toast.promise(
-      myPromise,
-      {
-        pending: `Logging in...`,
-        success: `Successfully Logged in!`,
-        error: `Error Logging in`
-      }
-    )
+    toast.promise(myPromise, {
+      pending: `Logging in...`,
+      success: `Successfully Logged in!`,
+      error: `Error Logging in`,
+    });
   };
 
   return (
