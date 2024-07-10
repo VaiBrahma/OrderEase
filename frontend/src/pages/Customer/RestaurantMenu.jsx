@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "./RestaurantMenu.module.css"; // Ensure the CSS file name matches this import
+import styles from "./RestaurantMenu.module.css";
 import { useParams } from "react-router-dom";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -8,7 +8,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Modal from "../../components/Modal/Modal.jsx";
+import ModalComponent from "../../components/ModalComponent/ModalComponent";
 
 const RestaurantMenu = () => {
   const [menu, setMenu] = useState({});
@@ -199,7 +199,7 @@ const RestaurantMenu = () => {
         handlePlaceOrder={handlePlaceOrder}
         triggerWiggle={triggerWiggle}
       />
-      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+      <ModalComponent isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         {!paymentStep ? (
           <>
             <h2 className="text-xl font-bold mb-4">Choose Payment Method</h2>
@@ -311,7 +311,7 @@ const RestaurantMenu = () => {
             </form>
           </>
         )}
-      </Modal>
+      </ModalComponent>
     </>
   );
 };
