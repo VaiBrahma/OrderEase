@@ -24,9 +24,7 @@ function LoginComponent() {
         .post("/api/auth/login", user)
         .then((response) => {
           setIsLoginComplete(true);
-
           const loggedIn = response.data;
-
           if (loggedIn) {
             dispatch(
               setLogin({
@@ -43,6 +41,7 @@ function LoginComponent() {
         })
         .catch((error) => {
           console.log(error.message);
+          throw error;
         });
     };
     const myPromise = login(user);
